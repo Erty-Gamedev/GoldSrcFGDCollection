@@ -1931,7 +1931,7 @@
 	]
 ]
 @PointClass base(Monster) size(-6 -6 0, 6 6 6) = monster_rat : "Rat (no ai?)" []
-@PointClass base(Weapon,Targetx,RenderFields) = monster_satchelcharge : "Live Satchel Charge" []
+@PointClass base(Weapon,Targetx,RenderFields) = monster_satchel : "Live Satchel Charge" []
 @PointClass base(Monster, TalkMonster) size(-16 -16 0, 16 16 72) = monster_scientist : "Scared Scientist" 
 [
       body(Choices) : "Body" : -1 =
