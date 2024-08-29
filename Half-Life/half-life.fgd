@@ -20,6 +20,15 @@
 //	- added ZHLT base to all applicable brush entities
 //	- above list compiled by Unquenque
 //	------------------------------------------------------------------------
+//
+// aug 29 2024 - 3.0.0.2
+//  - extract rendermode/fx/amount/color into baseclasses
+//  - renamed monster_satchelcharge to monster_satchel
+//  - added additional ZHLT keyvalues from VHLT
+//  - added studio() parameters to ammo, items, weapons, monsters, etc
+//  - changed many Target key types to target_destination (was target_source)
+//	------------------------------------------------------------------------
+//
 
 //
 // Worldspawn
@@ -247,7 +256,7 @@
 @BaseClass base(Targetname, Targetx, Global, RenderFields, ZHLT) = Breakable
 [
     health(integer) : "Strength" : 1
-	material(choices) :"Material type" : 0 =
+	material(choices) : "Material type" : 0 =
 	[
 		0: "Glass"
 		1: "Wood"
