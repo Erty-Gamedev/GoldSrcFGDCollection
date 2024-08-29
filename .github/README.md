@@ -16,9 +16,9 @@ Official FGDs from games and mods that are still being updated (i.e. still "aliv
 
 These games/mods should be added to the table below with instructions how to retrieve their official FGD:
 
-| Game/mod | How to get FGD |
-| -------- | -------------- |
-| Sven Co-op | Download the game from [Steam](https://store.steampowered.com/app/225840/Sven_Coop/). The path to the FGD will be `../Steam/steamapps/common/Sven Co-op/svencoop/sven-coop.fgd` |
+| Game/mod     | How to get FGD |
+| ------------ | -------------- |
+| Sven Co-op   | Download the game from [Steam](https://store.steampowered.com/app/225840/Sven_Coop/).<br>The path to the FGD will be `../Steam/steamapps/common/Sven Co-op/svencoop/sven-coop.fgd` |
 
 Historical versions or alternative versions of these FGDs are welcome.<br>
 The file name should use a suffix to signify this:
