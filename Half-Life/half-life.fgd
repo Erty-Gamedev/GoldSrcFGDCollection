@@ -79,11 +79,11 @@
 ]
 @BaseClass base(ZHLTCopyTarget) = ZHLT
 [
-    zhlt_noclip(choices) : "ZHLT Noclip" : 0 =
-    [
-        0 : "Solid"
-        1 : "Noclip"
-    ]
+	zhlt_noclip(choices) : "ZHLT Noclip" : 0 =
+	[
+		0 : "Solid"
+		1 : "Noclip"
+	]
 	zhlt_lightflags(choices) : "ZHLT Lightflags" : 0 =
 	[
 		0 : "Default"
@@ -92,19 +92,19 @@
 		3 : "Opaque + Embedded fix"
 		6 : "Opaque + Concave Fix"
 	]
-    zhlt_invisible(choices) : "ZHLT Invisible" : 0 =
-    [
-        0 : "Visible (default)"
-        1 : "Invisible"
-    ]
-    zhlt_customshadow(string) : "ZHLT Custom Shadow (when opaque)"
-    zhlt_embedlightmap(choices) : "ZHLT Embed Light Map (when translucent)" : 0 =
+	zhlt_invisible(choices) : "ZHLT Invisible" : 0 =
+	[
+		0 : "Visible (default)"
+		1 : "Invisible"
+	]
+	zhlt_customshadow(string) : "ZHLT Custom Shadow (when opaque)"
+	zhlt_embedlightmap(choices) : "ZHLT Embed Light Map (when translucent)" : 0 =
 	[
 		0 : "No (default)"
 		1 : "Yes"
 	]
 	zhlt_embedlightmapresolution(integer) : "ZHLT Embed Light Map Resolution" : 4
-    _minlight(string) : "Minimum Light Level"
+	_minlight(string) : "Minimum Light Level"
 ]
 @BaseClass = ZHLT_point
 [
@@ -142,7 +142,7 @@
 ]
 @BaseClass = Master
 [
-    master(string) : "Master"
+	master(string) : "Master"
 ]
 @BaseClass base(Target) = Targetx 
 [
@@ -152,7 +152,7 @@
 
 @BaseClass size(-16 -16 -16, 16 16 16) color(0 200 200) studio() = ModelBase
 [
-    model(studio) : "Model"
+	model(studio) : "Model"
 ]
 
 @BaseClass = RenderFxChoices
@@ -200,7 +200,7 @@
 @BaseClass base(Targetname, Target, RenderFields, Angles) color(0 200 200) = Monster 
 [
 	TriggerTarget(String) : "TriggerTarget"
-    TriggerCondition(Choices) : "Trigger Condition" : 0 =
+	TriggerCondition(Choices) : "Trigger Condition" : 0 =
 	[
 		0 : "No Trigger"
 		1 : "See Player, Mad at Player"
@@ -255,7 +255,7 @@
 
 @BaseClass base(Targetname, Targetx, Global, RenderFields, ZHLT) = Breakable
 [
-    health(integer) : "Strength" : 1
+	health(integer) : "Strength" : 1
 	material(choices) : "Material type" : 0 =
 	[
 		0: "Glass"
@@ -313,7 +313,7 @@
 @BaseClass = Light 
 [
 	_light(color255) : "Brightness" : "255 255 128 200"
-    style(Choices) : "Appearance" : 0 =
+	style(Choices) : "Appearance" : 0 =
 	[
 		0 : "Normal"
 		10: "Fluorescent flicker"
@@ -333,7 +333,7 @@
 
 @BaseClass = LockedSounds
 [
-    locked_sound(choices) : "Locked Sound" : 0 = 
+	locked_sound(choices) : "Locked Sound" : 0 = 
 	[
 		0: "None"
 		2: "Access Denied"
@@ -385,7 +385,7 @@
 
 @BaseClass base(Targetname, Targetx, Master, Appearflags, RenderFields, ZHLT, Global, Angles) = BaseToggle
 [
-    speed(integer) : "Speed" : 5
+	speed(integer) : "Speed" : 5
 	lip(integer) : "Lip"
 	wait(integer) : "delay before reset (-1 stay)" : 3
 ]
@@ -428,7 +428,7 @@
 		1 : "Starts Open" : 0
 		4 : "Don't link" : 0
 		8: "Passable" : 0
-        32: "Toggle" : 0
+		32: "Toggle" : 0
 		256:"Use Only" : 0
 		512: "Monsters Can't" : 0
 	]
@@ -539,7 +539,7 @@
 ]
 @BaseClass = TriggerState
 [
-    triggerstate(choices) : "Trigger State" : 2 = 
+	triggerstate(choices) : "Trigger State" : 2 = 
 	[
 		0 : "Off"
 		1 : "On"
@@ -1119,11 +1119,11 @@
 		-1: "Empty"
 		-7: "Volumetric Light"
 	]
-    zhlt_noclip(choices) : "Generate Cliphulls" : 1 =
-    [
-        0 : "Yes"
-        1 : "No"
-    ]
+	zhlt_noclip(choices) : "Generate Cliphulls" : 1 =
+	[
+		0 : "Yes"
+		1 : "No"
+	]
 ]
 
 @SolidClass base(Targetname) = func_ladder : "Ladder" []
@@ -1597,7 +1597,7 @@
 		1 : "Yes"
 	]
 	spawnflags(Flags) = [ 1 : "Initially dark" : 0 ]
-    style(Choices) : "Appearance" : 0 =
+	style(Choices) : "Appearance" : 0 =
 	[
 		0 : "Normal"
 		10: "Fluorescent flicker"
@@ -1699,7 +1699,7 @@
 @PointClass base(Monster,TalkMonster) size(-16 -16 0, 16 16 72) = monster_barney : "Barney" []
 @PointClass base(RenderFields,Appearflags, Angles) size(-16 -16 0, 16 16 72) = monster_barney_dead : "Dead Barney" 
 [
-    pose(Choices) : "Pose" : 0 =
+	pose(Choices) : "Pose" : 0 =
 	[
 		0 : "On back"
 		1 : "On side"
@@ -1739,7 +1739,7 @@
 @PointClass base(Monster) size(-16 -16 0, 16 16 36) = monster_headcrab : "Head Crab" []
 @PointClass base(Appearflags,RenderFields, Angles) size(-16 -16 0, 16 16 72) = monster_hevsuit_dead : "Dead HEV Suit" 
 [
-    pose(Choices) : "Pose" : 0 =
+	pose(Choices) : "Pose" : 0 =
 	[
 		0 : "On back"
 		1 : "Seated"
@@ -1749,7 +1749,7 @@
 ]
 @PointClass base(Appearflags,RenderFields, Angles) size(-16 -16 0, 16 16 72) = monster_hgrunt_dead : "Dead Human Grunt" 
 [
-    pose(Choices) : "Pose" : 0 =
+	pose(Choices) : "Pose" : 0 =
 	[
 		0 : "On stomach"
 		1 : "On side"
@@ -1815,7 +1815,7 @@
 @PointClass base(Weapon, Targetx, RenderFields) = monster_satchel : "Live Satchel Charge" []
 @PointClass base(Monster, TalkMonster) size(-16 -16 0, 16 16 72) = monster_scientist : "Scared Scientist" 
 [
-    body(Choices) : "Body" : -1 =
+	body(Choices) : "Body" : -1 =
 	[
 		-1 : "Random"
 		0 : "Glasses"
@@ -1826,7 +1826,7 @@
 ]
 @PointClass base(Appearflags,RenderFields, Angles) size(-16 -16 0, 16 16 72) = monster_scientist_dead : "Dead Scientist" 
 [
-    body(Choices) : "Body" : -1 =
+	body(Choices) : "Body" : -1 =
 	[
 		-1 : "Random"
 		0 : "Glasses"
@@ -1834,7 +1834,7 @@
 		2 : "Luther"
 		3 : "Slick"
 	]
-    pose(Choices) : "Pose" : 0 =
+	pose(Choices) : "Pose" : 0 =
 	[
 		0 : "On back"
 		1 : "On Stomach"
@@ -1847,7 +1847,7 @@
 ]
 @PointClass base(Monster) size(-14 -14 22, 14 14 72) = monster_sitting_scientist : "Sitting Scientist" 
 [
-    body(Choices) : "Body" : -1 =
+	body(Choices) : "Body" : -1 =
 	[
 		-1 : "Random"
 		0 : "Glasses"
@@ -2170,7 +2170,7 @@
 	[ 
 		1 : "No Message" : 0 
 	]
-    message(string) : "Message"
+	message(string) : "Message"
 	count(integer) : "Count before activation" : 2
 ]
 
