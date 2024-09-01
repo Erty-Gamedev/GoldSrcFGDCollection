@@ -1723,19 +1723,14 @@
 	iFlockSize(integer) : "Flock Size" : 8
 	flFlockRadius(integer) : "Flock Radius" : 128
 ]
-@PointClass base(Monster) size(-16 -16 0, 16 16 72) = monster_furniture : "Monster Furniture" 
-[
-	model(studio) : "model"
-
-]
+@PointClass base(Monster, ModelBase) size(-16 -16 0, 16 16 72) = monster_furniture : "Monster Furniture" []
 @PointClass base(Monster) size(-32 -32 0, 32 32 128) = monster_gargantua : "Gargantua" []
-@PointClass base(Monster, RenderFields) size(-16 -16 -36, 16 16 36) = monster_generic : "Generic Script Monster" 
+@PointClass base(Monster, RenderFields, ModelBase) size(-16 -16 -36, 16 16 36) = monster_generic : "Generic Script Monster" 
 [
 	spawnflags(flags) = 
 	[
 		4 : "Not solid"	: 0
 	]
-	model(studio) : "model"
 	body(integer) : "Body" : 0
 ]
 @PointClass base(Monster) size(-16 -16 0, 16 16 72) = monster_gman : "G-Man" []
