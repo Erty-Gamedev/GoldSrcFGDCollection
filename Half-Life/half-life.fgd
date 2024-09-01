@@ -197,7 +197,7 @@
 @BaseClass base(Targetname, Targetx, RenderFields, Appearflags, Angles) size(0 0 0, 32 32 32) color(80 0 200) = Ammo []
 @BaseClass base(Targetname, Targetx, RenderFields, Appearflags, Angles) size(-16 -16 0, 16 16 32) color(0 0 200) = Weapon []
 @BaseClass base(Weapon, Targetx) size(-16 -16 0, 16 16 36) = ItemBase []
-@BaseClass base(Appearflags, Angles) size(-16 -16 -36, 16 16 36) color(0 255 0) = PlayerClass []
+@BaseClass base(Appearflags, Angles) size(-16 -16 -36, 16 16 36) color(0 255 0) studio("models/player.mdl") = PlayerClass []
 
 @BaseClass base(Targetname, Target, RenderFields, Angles) color(0 200 200) = Monster 
 [
@@ -1561,7 +1561,7 @@
 @PointClass base(PlayerClass) = info_player_start : "Player 1 start" []
 
 @PointClass base(Targetname) size(-4 -4 -4, 4 4 4) color(200 100 50) = info_target : "Beam Target" []
-@PointClass size(-8 -8 0, 8 8 16) base(PlayerClass, Targetname) = info_teleport_destination : "Teleport destination" []
+@PointClass size(-8 -8 0, 8 8 16) base(Appearflags, Angles, Targetname) = info_teleport_destination : "Teleport destination" []
 
 
 //
