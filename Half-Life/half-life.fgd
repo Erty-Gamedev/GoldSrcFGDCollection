@@ -2193,7 +2193,7 @@
 	gravity(integer) : "Gravity Multiplier (1.0 default)" : 1.0
 ]
 
-@SolidClass base(Targetname, Target, Master) = trigger_hurt : "Trigger player hurt" 
+@SolidClass base(Targetname, Targetx, Master) = trigger_hurt : "Trigger player hurt" 
 [
 	spawnflags(flags) = 
 	[ 
