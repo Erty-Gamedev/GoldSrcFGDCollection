@@ -27,6 +27,7 @@
 //  - added additional ZHLT keyvalues from VHLT
 //  - added studio() parameters to ammo, items, weapons, monsters, etc
 //  - changed many Target key types to target_destination (was target_source)
+//  - renamed beverage types to correspond better with can.mdl skins
 //	------------------------------------------------------------------------
 //
 
