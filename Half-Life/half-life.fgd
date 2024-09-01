@@ -739,12 +739,12 @@
 	health(integer) : "Capacity" : 10
 	skin(choices) : "Beverage Type" : 0 = 
 	[
-		0 : "Coca-Cola"
-		1 : "Sprite"
-		2 : "Diet Coke"
-		3 : "Orange"
-		4 : "Surge"
-		5 : "Moxie"
+		0 : "Hai! (Green)"
+		1 : "Glub (Brown)"
+		2 : "Grope (Purple)"
+		3 : "Outhrie (Blue)"
+		4 : "Yuck (Green + Brown)"
+		5 : "Dante (Fire)"
 		6 : "Random"
 	]
 ]
@@ -1578,6 +1578,17 @@
 	spawnflags(flags) =
 	[
 		1 : "Short Logon" : 0
+	]
+]
+@PointClass base(Targetname, Angles) size(-16 -16 0, 16 16 36) color(0 0 200) studio("models/can.mdl") = item_sodacan : "Soda Can" [
+	skin(choices) : "Beverage Type" =
+	[
+		0 : "Hai! (Green)"
+		1 : "Glub (Brown)"
+		2 : "Grope (Purple)"
+		3 : "Outhrie (Blue)"
+		4 : "Yuck (Green+brown)"
+		5 : "Dante (Fire)"
 	]
 ]
 
