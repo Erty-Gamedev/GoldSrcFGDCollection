@@ -1,35 +1,11 @@
 //
-// Half-Life game definition file (.fgd) 
-// version 3.0.0.1
-// for Worldcraft 3.3 and above, and Half-Life 1.0.0.9 and above
+// Half-Life game definition file (.fgd)
+// Version 1.1.0
 //
-// updated by Chris Bokitch
-// autolycus@valvesoftware.com
-// http://www.valve-erc.com/
+// Part of the GoldSource FGD Collection Project:
+// https://github.com/Erty-Gamedev/GoldSrcFGDCollection
 //
 
-//
-// aug 28 2001 - 3.0.0.1
-//	- changed IS NOT LOOPED to NOT TOGGLED on ambient_generic (royalef)
-//	- gave light_environment a Name
-//	- added Angular Velocity to func_train
-//	- added cycler_wreckage (Waldo)
-//	- created ZHLT_point baseclass
-//	- added ZHLT_point base to light, light_environment, and light_spot
-//	- created ZHLT baseclass
-//	- added ZHLT base to all applicable brush entities
-//	- above list compiled by Unquenque
-//	------------------------------------------------------------------------
-//
-// aug 29 2024 - 3.0.0.2
-//  - extract rendermode/fx/amount/color into baseclasses
-//  - renamed monster_satchelcharge to monster_satchel
-//  - added additional ZHLT keyvalues from VHLT
-//  - added studio() parameters to ammo, items, weapons, monsters, etc
-//  - changed many Target key types to target_destination (was target_source)
-//  - renamed beverage types to correspond better with can.mdl skins
-//	------------------------------------------------------------------------
-//
 
 //
 // Worldspawn
