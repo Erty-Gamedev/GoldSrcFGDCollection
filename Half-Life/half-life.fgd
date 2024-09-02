@@ -153,6 +153,8 @@
 		14: "Constant Glow"
 		15: "Distort"
 		16: "Hologram (Distort + fade)"
+		18: "Bulge Sideways"
+		19: "Glow Shell"
 	]
 ]
 @BaseClass base(RenderFxChoices) = RenderFields 
