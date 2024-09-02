@@ -193,6 +193,8 @@
 		10: "See Player Unconditional"
 		11: "See Player, Not In Combat"
 	]
+	body(integer) : "Body"
+	skin(integer) : "Skin"
 	spawnflags(flags) = 
 	[
 		1 : "WaitTillSeen" 	: 0
@@ -666,7 +668,10 @@
 // Cyclers
 //
 
-@PointClass base(Targetname, ModelBase, Angles, RenderFields) size(-16 -16 0, 16 16 72) = cycler : "Monster Cycler" []
+@PointClass base(Targetname, ModelBase, Angles, RenderFields) size(-16 -16 0, 16 16 72) = cycler : "Monster Cycler" [
+	body(integer) : "Body"
+	skin(integer) : "Skin"
+]
 
 @PointClass base(Monster, ModelBase) size(-16 -16 -16, 16 16 16) = cycler_weapon : "Weapon Cycler" []
 
