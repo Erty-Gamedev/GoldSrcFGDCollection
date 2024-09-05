@@ -438,7 +438,6 @@
 	spawnflags(flags) =
 	[
 		1 : "Starts Open" : 0
-		4 : "Don't link" : 0
 		8: "Passable" : 0
 		32: "Toggle" : 0
 		256:"Use Only" : 0
