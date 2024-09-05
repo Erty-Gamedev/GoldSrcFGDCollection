@@ -58,7 +58,7 @@
 [
 	zhlt_noclip(choices) : "ZHLT Noclip" : 0 =
 	[
-		0 : "Solid"
+		0 : "Solid (default)"
 		1 : "Noclip"
 	]
 	zhlt_lightflags(choices) : "ZHLT Lightflags" : 0 =
