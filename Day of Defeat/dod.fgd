@@ -1,168 +1,17 @@
 // ---------------------------------------------------------------------------------
-// Day of Defeat game definition file (.fgd) 
-// Version 2.0.3.A.SP
+// Day of Defeat 1.0 game definition file (.fgd) 
+// Version 4.0
 // For Worldcraft 3.3 and above, and Half-Life 1.0.0.9 and above
-// Last update: April 26, 2002 by Tim "Waldo" Holt
-//
 // ---------------------------------------------------------------------------------
-//
-// ---------------------------------------------------------------------------------
-// Version Number Convention
-// ---------------------------------------------------------------------------------
-//    First version number reflects major version # of game
-//    Second version number reflects minor version # of game
-//    Third version number reflects version # of FGD for given game version
-//    Alternate ending digits reflect game type and FGD status...
-//       "A" = alpha
-//       "B" = beta
-//       "SP" = single player
-//       "MP" = multiplayer
-// ---------------------------------------------------------------------------------
-
-// ---------------------------------------------------------------------------------
-// Revision history
-// ---------------------------------------------------------------------------------
-// by Justin DeJong aka "N0TH1NG"
+// Based on the original by Justin DeJong aka "N0TH1NG" R.I.P.
 // modified from code by Chris Bokitch aka "autolycus"
-//
-// by Tim Holt aka Waldo (burkenholt@home.com)
-// modified from code by Justin DeJong aka "N0TH1NG"
-//
-// Version 0.7.3 and 0.7.4 by Morlam (morlam@gamespotmail.com)
-// slightly modified from code by Chris Bokitch (Autolycus), Justin DeJong (NOTH1NG), and
-// Tim Holt (Waldo).
-// 
-// version 0.8.0 by Matt Boone aka "Mugsy"
-// modified from version 0.7.4
-//
-// version 2.0.1 by Tim Holt aka "Waldo"
-// modified from version 0.8.0 
-// changed first digit of version number to reflect DoD version.
-//
-// version 2.0.2 by Brandon Russell aka "Axis"
-// modified from version 2.0.1 
 // ---------------------------------------------------------------------------------
-// Original changes by Tim Holt (0.7.0)
-//   - Added new Trigger Changetarget sprite (green cube w/words)
-//   - Added new Info Target sprite (bullseye)
-//   - Added new trigger_camera sprite (Video camera)
-//   - Added new Multi Manager sprite (box w/arrows coming out of it)
-//   - Added new "Cycler Sprite" sprite (box w/arrow circle around it)
-//   - Added replacement ambient_generic sprite (changed from speaker to speaker
-//     with words "Ambient Generic" around it")
-//   - Added replacement env_sound sprite (changed from speaker to speaker
-//     with words "Env Sound" around it")
-//   - Added replacement light_spot sprite (changed from lightbulb to spotlight)
-//   - Added replacement Light Environment sprite (changed from lightbulb to sun)
-//   - Added all the "game_*" entities
-//   - Added info_compile_params and info_lights_rad entities.  Idea is to
-//     get someone like Zoner to implement support for them in Zoners, or
-//     build support for them into a compile tool like Q2Beaver, HLCC, etc.
-//   - Added env_funnel
-//   - Added trigger_gravity
-//   - Added player_weaponstrip
-//   - Put Zoners RAD option (that allow solid (func_) based ents to cast
-//     shadows) into a number of new additional items that can support it.
-//     Use with caution, as for example a func_pushable can cast a shadow now,
-//     but if you push it, the shadow stays behind :^)
-//
-// 12/31/2000 - Tim Holt (0.7.1)
-//   - Added new sprites for all the Game entities
-//   - Added new sprite for Player Weapon Strip
-//   - Added new sprite for Trigger_Relay
-//   - Added new sprite for Trigger_ChangeTarget
-//
-// 01/01/2001 - Tim Holt (0.7.2)
-//   - Added new dropdown to hostage entity, so you can choose hostage skin
-//     directly by name (orange suit guy or tie guy)
-//   - Removed commented out "master" option for game_zone_player.  It was
-//     commented out from the original HL FGD for some reason.  Not sure why
-//     or if maybe there is a problem with it?
-//
-// 01/04/2001 - Morlam (0.7.3)
-//   - Arranged all the point entities in alphabetical order
-//   - Corrected a typo in hostage_entity: "Orange Suit Worker" from
-//	 "Orange Suite Worker".
-//   - Changed func_water default WaveHeight to 0
-//   - Added ZHLT Light Flags to func_plat, _pendulum and _vehicle
-//   - Under info_compile_params:
-//		- Changed extra to choices instead of a string; default is now 0
-//		- Changed extra to read: "Enable Extra mode in HLRAD?"
-//		- Added hullfile, chop, texchop, circus, and dscale keys
-//		- Added "No Clip" flag under Run BSP in the spawnflags
-//   - Under info_lights_rad:
-//		- added radfile key/value, specifies custom texture light file
-//
-// 01/05/2001 - Morlam (0.7.4)
-//   - Added _fade and _falloff keys to the light_ entities.  Need ZHLT 2.2+
-//	 for these to work.
-//   - Added light_origin key to the ZHLT Light Flags BaseClass.  Again, you
-//	 need the latest version of Zoner's Tools for light_origin to work.
-//   - Moved circus and extra from the "Class Info" tab to the "Flags" tab.
-//   - Shortened the SmartEdit names of certain key/values in info_compile_params
-//	 so that they aren't cut off (at least, on my 800X600 screen on a 15 inch 
-//	 monitor).
-//
-// Jan 6, 2001 - Tim Holt (0.7.5)
-//   - Added new parameter options for game_player_equip to list all
-//     CS items in dialog, thus removing the need to turn off SmartEdit
-//     to configure.
-//   - Added new sprite for trigger_auto (green box with words "Trigger Auto")
-// 
-// Jan 26, 2001 - Tim Holt (0.7.6)
-//   - Added "No Clients" check option to Trigger base class per suggestion/lead
-//     from Mataleone (cs mapping forum)
-//
-// Aug 27, 2001 - Tim Holt (0.7.7)
-//   - Removed some old CS entities that had not been removed
-//   - Added cycler_wreckage
-//   - Added Angular velocity option to func_train (see
-//     http://www.chatbear.com/cgi-bin/board.pl?action=viewthread&threadid=252,994640145,10305&id=47702&boardid=9)
-//  
-// Dec, 2001 - Matt Boone ( 0.8.0 )
-//   - added dod 2.0 objectives
-//
-// Dec 11, 2001 - Tim Holt (2.0.0bmp)
-//   - merged some spirit features with Matt Boone's revised 2.0 DoD entities
-//
-// Jan 11, 2002 - Brandon Russell (2.0.2bmp)
-//   - Added 2 new settings to the spawn flags of Game_text to fix Kami's map
-//
-// April 26, 2002 - Tim Holt (2.0.3mp)
-//   Rolling in a bunch of fixes based 
-//   - Removed info_initial_player_allies as it is no longer used in 2.0
-//   - Removed info_initial_player_axis as it is no longer used in 2.0
-//   - Removed sprite from info_player_allies and info_player_axis.  Hard to judge
-//     player spawn location and player size with sprites.  Axis is red, Allies are 
-//     green.  Colors were also incorrect for these entities.  Set to be correct.
-//   - Added new _defuse_light attribute for the HLRAD tweak by Adam Foster (see
-//     http://www.chatbear.com/cgi-bin/board.pl?action=viewthread&threadid=860,1014492782,1883&id=158865&boardid=653&view=flatold 
-//   - Added missing "movewith" attribute to all trigger brush ents
-//   - Added skin value -3 for water to func_illusionary
-//   - Added in all the weapon_ entities for weapons on the ground
-//   - Added in all the ammo_ entities for ammo on the ground
-//
-// April 28, 2002 - Tim Holt (2.0.3.A.SP)
-//   Adding in single player stuff
-//   - Add HintTypeChoices base class
-//   - Add ActivityTypeChoices base class
-//   - Add Monster base class
-//   - Add info_node entity
-//   - Add info_intermission entity
-//   - Add info_landmark entity
-//   - Add AiScriptedSequence entity
-//   - Added scripted_action entity
-//   - Added scripted_sentence entity
-//   - Added scripted_sequence entity
-//   - Added trigger_transition entity
-//   - Added monster_axis_grunt
-//   - Added monster_allied_grunt
-//   - Added monster_allied_barney
-
+// Various content contributions by... 
+//    Morlam (morlam@gamespotmail.com)
+//    Matt Boone aka "Mugsy"
+//    Tim Holt aka "Waldo"
+//    Brandon Russell aka "Axis"
 // ---------------------------------------------------------------------------------
-
-// Worldspawn
-//
 
 @SolidClass = worldspawn : "World entity"
 [
@@ -179,9 +28,9 @@
 ]
 
 
-//
+// ---------------------------------------------------------------------------------
 // BaseClasses
-//
+// ---------------------------------------------------------------------------------
 
 // --------------------------------------------------------------------- 
 // These are the possible hint types currently suported by
@@ -363,6 +212,15 @@
 		2: "Binoculars (50)"
 		3: "Widescreen (110)"  
 	] 
+	cam_fade(choices) : "dod_camera Fade" : 0 =
+	[
+		0: "normal"
+		1: "black (instant fade out)"
+		2: "fast fade out (2 sec)"
+		3: "fast fade in (2 sec)"
+		4: "slow fade out (4 sec)"
+		5: "slow fade in (4 sec)"
+	]
         subtitle(integer) :"Subtitle" : 0 
 ]
 
@@ -782,6 +640,16 @@
 	minRange(string) : "Minmum target range" : "0"
 	maxRange(string) : "Maximum target range" : "0"
 	_minlight(string) : "Minimum light level"
+
+	m_iClass(choices) : "Behave as" : 0 =
+	[
+		0 : "Normal"
+		//* Likes players and barneys; hates Human Military and most aliens; scared of Alien Military and Bullsquids.
+		14 : "Allied Friendly"
+		//* Likes Allied players, hates everyone else
+		15: "Axis Friendly"
+		//* Like Axis players, hates everyone else	
+	]
 ]
 
 @BaseClass = PlatSounds 
@@ -959,6 +827,360 @@
 ]
 
 // ===================================================================================================
+// DoD specific entities
+// ===================================================================================================
+
+@PointClass base(Targetx, Targetname, DoDCam) iconsprite("sprites/DoD/TriggerCamera.spr") = dod_camera : "DoD Camera"  
+[ 
+      wait(integer) : "Hold time" : 10 
+         triggerstart(string) : "Trigger on start" : "" 
+         triggerend(string) : "Trigger on end" : "" 
+      moveto(string) : "Path Corner" 
+      spawnflags(flags) = 
+      [ 
+           1: "Start At Player" : 1 
+           2: "Follow Player" : 1 
+           4: "Freeze Player" : 0 
+      ] 
+      speed(string) : "Initial Speed" : "0" 
+      acceleration(string) : "Acceleration units/sec^2" : "500" 
+      deceleration(string) : "Stop Deceleration units/sec^2" : "500" 
+      teambound(choices) : "Team that is bound to" : 3 = [ 
+           1 : "Allies" 
+           2 : "Axis" 
+           3 : "Both" 
+         ] 
+] 
+
+@PointClass studio("models/tnt.mdl") base(Targetname,Target, MoveWith) iconsprite("sprites/DoD/Enigma.spr")  = dod_object : "Object Objective"
+[
+	model(studio) : "Model" : "models/Tnt.mdl"
+	object_name(string) : "Objects Name" : ""
+	object_owner(choices) : "Team that can pick up" : 0 =
+	[
+		0 : "Both"
+		1 : "Allies"
+		2 : "Axis"
+	]
+	object_group(string) : "Group Name" : ""
+	object_takesound(sound) : "Sound when taken"
+	object_capsound(sound) : "Sound when captured"
+	object_dropsound(sound) : "Sound when dropped"
+	object_returnsound(sound) : "Sound when returned"
+	object_carryspeed(string) : "Carry speed (this*speed)" : "0.5"
+	object_resetontouch(choices) : "Reset on touch" : 1 =
+	[
+		0 : "No"
+		1 : "Yes"
+	]
+	object_resettime(integer) : "Reset time (secs, max. 600)" : 60
+	object_cappoints(integer) : "Points to capturer" : 10
+	object_otherpoints(integer) : "Points for teammates" : 5
+	object_donetarget(string) : "Target When Complete" : ""
+
+	object_player_sprite(sprite) : "Sprite to show above player if carried" : "sprites/obj_tnt_sm.spr"
+	object_hud_sprite(sprite) : "Sprite to show on HUD if carried" : "sprites/obj_tnt.spr"
+	master(string) : "Master" 
+
+	spawnflags(flags) = 
+	[
+		1 : "Report pickups and Drops" : 0
+	]
+]
+
+// Capture points
+@SolidClass base(Targetname,Target, MoveWith) = dod_object_goal : "Object Capturepoint"
+[
+	spawnflags(flags) =
+	[
+		1 : "Dont Multicap" : 0
+		2 : "Cap once per round" : 0
+	]
+	capobj_group(string) : "Group Name" : ""
+	capobj_donetarget(string) : "Target When Complete" : ""
+	capobj_hud_sprite(sprite) : "Sprite to show on HUD if in zone without object" : "sprites/obj_tnt.spr"
+	master(string) : "Master" 
+]
+
+// Scoring events
+@PointClass base(Targetname,Target)  iconsprite("sprites/DoD/PrimaryScore.spr")  = dod_score_ent : "Used for done sequences"
+[
+	team(choices) : "For Team" : 0 =
+	[
+		0 : "Both"
+		1 : "Allies"
+		2 : "Axis"
+	]
+	score_points(integer) : "Points" : 10
+	score_resetitemtime(integer) : "Reset Items Time (0 = none)" : 3
+	score_resetplayerstime(integer) : "Reset Players Time (0 = none)" : 3
+	noise(string) : "Reset Group (blank for all)" : ""
+	noise2(choices) : "End game?" : 0 =
+	[
+		0 : "No"
+		1 : "Yes"
+	]
+	message(string) : "Message" : ""
+	score_nextmap(string) : "Move to Next Map" : ""
+	score_nextmapdelay(integer) : "Change level delay ( 0 = none )" : 3
+]
+
+// Territorial Control Objectives - by Mugsy
+@PointClass base(Targetname,Target)  iconsprite("sprites/DoD/ControlPointMaster.spr") = dod_control_point_master : "Control Point Master"
+[
+	point_give_delay_time(integer) : "Time between point gives ( seconds )" : 20
+	allies_capture_target(string) : "Target when allies capture" : ""
+	axis_capture_target(string) : "Target when axis capture" : ""
+
+	master(string) : "Master" : ""
+	cpm_group(string) : "Group Name" : ""
+]
+
+
+@PointClass base(MoveWith,Master) iconsprite("sprites/DoD/ControlPoint.spr") =  dod_location : "Location" 
+[  
+location_name(string) : "Name of this location" : "" 
+]
+
+@PointClass studio("models/mapmodels/flags.mdl") base(Targetname,Target,MoveWith) iconsprite("sprites/DoD/ControlPoint.spr") = dod_control_point : "Control Point"
+[
+	spawnflags(flags) =
+	[
+		1: "Hide Control Point on HUD" : 0
+	]
+	point_name(string) : "Control Point Name" : "a control point"
+
+	point_can_allies_touch(choices) : "Can Allies Touch This Point?" : 0 =
+	[
+		0 : "Yes"
+		1 : "No"
+	]
+
+	point_can_axis_touch(choices) : "Can Axis Touch This Point?" : 0 =
+	[
+		0 : "Yes"
+		1 : "No"
+	]
+
+	point_pointvalue(integer) : "Time based points value" : 1
+	point_points_for_cap(integer) : "Points given to capturer" : 1
+	point_team_points(integer) : "Points given to Team" : 0
+	point_default_owner(choices) : "Default Owner of the control point" : 0 =
+	[
+		0 : "Neither"
+		1 : "Allies"
+		2 : "Axis"
+	]
+	point_axis_capsound(sound) : "Sound Made when Axis captures" : ""
+	point_allies_capsound(sound) : "Sound Made when Allies captures" : ""
+	point_resetsound(sound) : "Sound Made when point resets" : ""
+
+	point_allies_model(string) : "Model when allies capture" : "models/w_aflag.mdl"
+	point_allies_model_bodygroup(integer) : "Allies model bodygroup" : 0
+
+	point_axis_model(string) : "Model when axis capture" : "models/w_gflag.mdl"
+	point_axis_model_bodygroup(integer) : "Axis model bodygroup" : 0
+
+	point_reset_model(string) : "Model when point reset" : "models/w_wflag.mdl"
+	point_reset_model_bodygroup(integer) : "Reset model bodygroup" : 0
+
+	point_hud_icon_neutral(choices) : "Hud icon when noone owns point" : 0 =  [ 
+		0 : "Neutral Flag"  
+		3 : "Neutral Artillery"  
+		6 : "Neutral Bridge"  
+		9 : "Neutral Radio" 
+		12 : "Neutral Docs"  
+		15 : "Neutral Truck"  
+		18 : "Neutral Custom1"  
+		21 : "Neutral Custom2"  
+		24 : "Neutral Custom3"  
+	]
+	point_hud_icon_axis(choices) : "Hud icon when Axis own point" : 0 =  [ 
+		2 : "Axis Flag"  
+		5 : "Axis Artillery"  
+		8 : "Axis Bridge"  
+		11 : "Axis Radio" 
+		14 : "Axis Docs"  
+		17 : "Axis Truck"  
+		20 : "Axis Custom1"  
+		23 : "Axis Custom2"  
+		26 : "Axis Custom3"  
+	]
+
+	point_hud_icon_allies(choices) : "Hud icon when Allies own point" : 0 =  [ 
+		1 : "Allied Flag"  
+		4 : "Allied Artillery"  
+		7 : "Allied Bridge"  
+		10 : "Allied Radio" 
+		13 : "Allied Docs"  
+		16 : "Allied Truck"  
+		19 : "Allied Custom1"  
+		22 : "Allied Custom2"  
+		25 : "Allied Custom3" 
+		27 : "British Flag" 
+	]
+
+	point_allies_target(string) : "Target when allies capture" : "" 
+	point_axis_target(string) : "Target when axis capture" : ""		
+	point_reset_target(string) : "Target when point reset" : ""
+
+	point_win_string(string) : "String to Show when capped (vars)" : ""
+
+	point_group(string) : "Group Name" : ""
+
+	master(string) : "Master" : ""
+
+	point_index(integer) : "Index of this point ( unique )" : -1
+
+	point_allies_win_string(string) : "Localized Allies Cap String" : ""
+	point_axis_win_string(string) : "Localized Axis Cap String" : ""
+
+]
+
+@SolidClass base(Targetname,Target,MoveWith,Master) = dod_trigger_sandbag : "Sandbag Trigger"
+[
+	sandbag_range(integer) : "Degrees in either direction" : 15
+]
+
+@SolidClass base(Targetname,Target,MoveWith,Master) = dod_capture_area : "Capture Area"
+[
+	area_allies_cancap(choices) : "Can Allies Cap?" : 1 = 
+	[
+		1 : "Yes"
+		0 : "No"
+	]
+
+	area_axis_cancap(choices) : "Can Axis Cap?" : 1 = 
+	[
+		1 : "Yes"
+		0 : "No"
+	]
+
+	area_allies_numcap(integer) : "Number of Allies to cap" : 1 
+	area_axis_numcap(integer) : "Number of Axis to cap" : 1 
+
+	area_time_to_cap(integer) : "Time to cap (sec)" : 5 
+
+	area_allies_startcap(string) : "Target when allies start capture" : "" 
+	area_allies_breakcap(string) : "Target when allies cap is broken" : "" 
+	area_allies_endcap(string) : "Target when allies complete capture" : "" 
+
+	area_axis_startcap(string) : "Target when axis start capture" : ""
+	area_axis_breakcap(string) : "Target when axis cap is broken" : ""
+	area_axis_endcap(string) : "Target when axis complete capture" : ""
+
+	area_hud_sprite(sprite) : "Sprite to show on HUD" : ""
+
+	area_object_group(string) : "Requires Object from this group:" : ""
+]
+
+// ammo_depot_teams(choices) : "Depot works for which teams" : 6 =
+// [
+// 		2 : "Allies Only"
+// 		4 : "Axis Only"
+// 		6 : "Both Teams"
+// 	]
+// 	master(string) : "Master" 
+// ]
+
+
+ @PointClass base(Master) = info_doddetect : "DoD Gamerules" 
+ [  
+	detect_allies_infinite(choices) : "Give Allie team infinite respawns" : 1  =  [ 
+		2 : "No"  
+		1 : "Yes" 
+	]
+
+	detect_axis_infinite(choices) : "Give Axis team infinite respawns" : 1  =  [ 
+		2 : "No"  
+		1 : "Yes" 
+	] 
+
+	detect_axis_paras(choices) : "Make Axis team paratroopers" : 0  =  [ 
+		0 : "No"  
+		1 : "Yes" 
+	] 
+
+	detect_allies_paras(choices) : "Make Allie team paratroopers" : 0  =  [ 
+		0 : "No"  
+		1 : "Yes" 
+	]
+	detect_allies_country(choices) : "Country for Allied team" : 0 = [
+		0 : "United States"
+		1 : "British"
+	]
+	 
+	detect_points_axiseliminated(integer) : "Points given for wiping out Axis team": 5 
+	detect_points_allieseliminated(integer) : "Points given for wiping out Allies team": 5  
+
+	detect_target_allieseliminated(string) : "Target when allies are eliminated" : "" 
+	detect_target_axiseliminated(string) : "Target when axis are eliminated" : "" 
+
+	detect_use_timer(choices) : "Use built-in timer?" : 0  =  [ 
+		0 : "No"  
+		1 : "Yes" 
+	] 
+
+	detect_target_timerexpired(string) : "Target when the built-in timer expires" : "" 
+
+	detect_timer_team(choices) : "Which team wins when timer expires" : 0  =  [ 
+		0 : "Neither"  
+		1 : "Allies"
+		2 : "Axis" 
+	] 
+
+	detect_points_timerexpired(integer) : "Points given when timer expires": 5
+
+	detect_allies_respawnfactor(string) : "Allies Respawn delay factor" : "1.0"
+	detect_axis_respawnfactor(string) : "Axis Respawn delay factor" : "1.0"
+
+	detect_wind_velocity_x(string) : "Wind X velocity" : "0.0"
+	detect_wind_velocity_y(string) : "Wind X velocity" : "0.0"
+
+	detect_weather_type(choices) : "Weather Type" : 0 = [
+		0 : "None"
+		1 : "Rain"
+		2 : "Snow"
+	]
+]
+
+@PointClass base(Targetname,Target) iconsprite("sprites/DoD/PointRelay.spr") = dod_point_relay : "Capture Relay"
+[
+	dod_relay_team(choices) : "Relay triggers point with which team" : 1 =
+	[
+		1 : "Allies"
+		2 : "Axis"
+		0 : "Reset Point"
+	]
+]
+
+@PointClass base(Targetname,Target) iconsprite("sprites/DoD/RoundTimer.spr") = dod_round_timer : "DoD Timer"
+[
+	spawnflags(flags) =
+	[
+		1 : "Shown On HUD" : 1
+		2 : "Start Off" : 0
+	]
+
+	master(string) : "Master" 
+
+	round_timer_length(integer): "Timer Length( in seconds )" : 60 
+]
+
+@PointClass studio("models/player/us-inf/us-inf.mdl") base(Master,CPMaster) size(-16 -16 -36, 16 16 36) color(0 255 0) = info_player_allies : "Allies team start"
+[
+]
+
+@PointClass studio("models/player/axis-inf/axis-inf.mdl") base(Master,CPMaster) size(-16 -16 -36, 16 16 36) color(255 0 0) = info_player_axis : "Axis team start"
+[
+]
+
+@PointClass base(Master,CPMaster) size(-16 -16 -36, 16 16 36) color(0 0 255)  iconsprite("sprites/DoD/ObserverStart.spr") = info_player_observer : "Observer start"
+[
+]
+
+
+// ===================================================================================================
 
 @PointClass base(Targetname) iconsprite("sprites/DoD/AmbientGeneric.spr") = ambient_generic : "Universal Ambient"
 [
@@ -1086,7 +1308,7 @@
 	rendercolor(color255) : "Fade Color (R G B)" : "0 0 0"
 ]
 
-@PointClass base(Targetname, Angles, MoveWith, RenderFields) = env_model : "New alternative to cyclers" 
+@PointClass studio() base(Targetname, Angles, MoveWith, RenderFields) = env_model : "New alternative to cyclers" 
 [
 	model(studio) : "Model name"
 	skin(integer) : "Skin" : 0
@@ -1294,6 +1516,10 @@
 	[
 		1: "Play Once" : 0
 		2: "All Clients" : 0
+		4: "Allies Only" : 0
+		8: "Axis Only" : 0
+		16: "Allied Player Only" : 0
+		32: "Axis Player Only" : 0
 	]
 	messagesound(sound) : "Sound effect"
 	messagevolume(string) : "Volume 0-10" : "10"
@@ -1303,6 +1529,14 @@
 		1 : "Medium Radius"
 		2 : "Large  Radius"
 		3 : "Play Everywhere"
+	]
+
+	master(string) : "Master"
+
+	hintmsg(Choices) : "Draw as Hint Message" : 0 = 
+	[
+		0 : "No"
+		1 : "Yes"
 	]
 ]
 
@@ -1584,6 +1818,12 @@
 
 @SolidClass base(Targetname) = game_zone_player : "Player Zone brush"
 [
+	spawnflags(flags) =
+	[
+		1: "Ignore Allies" : 0
+		2: "Ignore Axis" : 0
+	]
+
 	intarget(target_destination) : "Target for IN players"
 	outtarget(target_destination) : "Target for OUT players"
 	incount(target_destination) : "Counter for IN players"
@@ -1797,43 +2037,17 @@
 
 @PointClass base(Targetname, Angles, DoDCam) size(16 16 16) color(247 181 82) = path_corner : "Moving platform stop"
 [
+	target(target_destination) : "Next stop target"
+	speed(integer) : "New Train Speed" : 0
+	yaw_speed(integer) : "New Train rot. Speed" : 0
 	spawnflags(Flags) =
 	[
 		1: "Wait for retrigger" : 0
 		2: "Teleport" : 0
 		4: "Fire once" : 0
 	]
-	target(target_destination) : "Next stop target"
 	message(target_destination) : "Fire On Pass"
 	wait(integer) : "Wait here (secs)" : 0
-	speed(integer) : "New Train Speed" : 0
-	yaw_speed(integer) : "New Train rot. Speed" : 0
-]
-
-@PointClass iconsprite("sprites/DoD/Announcement.spr") base(Targetname) = speaker : "Announcement Speaker"
-[
-	preset(choices) :"Announcement Presets" : 0 =
-	[
-		0: "None"
-		1: "C1A0 Announcer"
-		2: "C1A1 Announcer"
-		3: "C1A2 Announcer"
-		4: "C1A3 Announcer"
-		5: "C1A4 Announcer"  
-		6: "C2A1 Announcer"
-		7: "C2A2 Announcer"
-		// 8: "C2A3 Announcer"
-		9: "C2A4 Announcer"
-		// 10: "C2A5 Announcer"
-		11: "C3A1 Announcer"
-		12: "C3A2 Announcer"
-	]
-	message(string) : "Sentence Group Name"
-	health(integer) : "Volume (10 = loudest)" : 5
-	spawnflags(flags) =
-	[
-		1: "Start Silent" : 0
-	]
 ]
 
 @PointClass base(Targetname) size(16 16 16) = path_track : "Train Track Path"
@@ -1864,7 +2078,9 @@
 	spawnflags(Flags) =
 	[
 		1 : "Remove On fire" : 1
+		512 : "Trigger at every round start" : 1
 	]
+
 	triggerstate(choices) : "Trigger State" : 0 = 
 	[
 		0 : "Off"
@@ -1888,25 +2104,6 @@
 	deceleration(string) : "Stop Deceleration units/sec^2" : "500"
 ]
 
-@PointClass base(Targetx, Targetname, DoDCam) iconsprite("sprites/DoD/TriggerCamera.spr") = dod_camera : "DoD Camera" 
-[
-	wait(integer) : "Hold time" : 10
-	moveto(string) : "Path Corner"
-	spawnflags(flags) =
-	[
-		1: "Start At Player" : 1
-		2: "Follow Player" : 1
-		4: "Freeze Player" : 0
-	]
-	speed(string) : "Initial Speed" : "0"
-	acceleration(string) : "Acceleration units/sec^2" : "500"
-	deceleration(string) : "Stop Deceleration units/sec^2" : "500"
-	teambound(choices) : "Team that is bound to" : 3 = [
-		1 : "Allies"
-		2 : "Axis"
-		3 : "Both"
-        ]
-]
 
 //* This is a very powerful entity, but is probably only useful for experienced mappers. Use with caution.
 @PointClass base(Targetname) = trigger_changealias : "Trigger Change Alias"
@@ -1985,8 +2182,15 @@
 
 @SolidClass base(Trigger) = trigger_multiple : "Trigger: Activate multiple" 
 [
+	spawnflags(flags) = 
+	[
+		512: "Reset at round restart" : 1
+	]
+
 	wait(integer) : "Delay before reset" : 10
-        teamonly (choices) : "Team Affected" : 0 = [
+
+    teamonly (choices) : "Team Affected" : 0 = 
+    [
 		0 : "Both"
 		1 : "Allied"
 		2 : "Axis"
@@ -1994,7 +2198,14 @@
 ]
 
 @SolidClass base(Trigger) = trigger_once : "Trigger: Activate once" [
-        teamonly (choices) : "Team Affected" : 0 = [
+
+	spawnflags(flags) = 
+	[
+		512 : "Reset at round restart" : 1
+	]
+
+    teamonly (choices) : "Team Affected" : 0 = 
+	[
 		0 : "Both"
 		1 : "Allied"
 		2 : "Axis"
@@ -2130,9 +2341,18 @@
 		1 : "Only Trigger" : 0
 		2 : "Touch"	   : 0
 		4 : "Pressure"     : 0
-		256: "Instant Crowbar" : 1
+		8 : "Only Grenades" : 0 
+		16 : "Allies Only" : 0
+		32 : "Axis Only" : 0
+		64 : "Object Cap Only" : 0
+		256 : "Bazooka or Grenades" : 0
+		512 : "Only Bazooka" : 0
 	]
 	_minlight(string) : "Minimum light level"
+	capobj_group(string) : "TnT Group Name (if used)" : ""
+	tnttrigger(string) : "Trigger when tnt set (if used)" : ""
+	tntdelay(integer) : "delay before breaking with tnt" : 3
+	capobj_hud_sprite(sprite) : "Sprite to show on HUD if in zone without object" : "sprites/obj_tnt.spr"
 ]
 
 @SolidClass base(Targetname, RenderFields, Angles, ZhltLightFlags, MoveWith) = func_button : "Button" 
@@ -2290,6 +2510,7 @@
 	]
 	m_iszXController(target_destination) : "X Controller"
 	m_iszYController(target_destination) : "Y Controller"
+	m_iDamage(integer) : "Damage" : 200
 ]
 
 @SolidClass base(Targetname, RenderFields, Angles, ZhltLightFlags, MoveWith) = func_pendulum : "Swings back and forth" 
@@ -2557,6 +2778,7 @@
 	spawnflags(flags) =
 	[
 		8 : "Not solid" : 0
+		16 : "Not Interruptible" : 0
 	]
 	_minlight(string) : "Minimum light level"
 ]
@@ -2719,275 +2941,461 @@
 ]
 
 //
-// 1019 - Mugsy added territorial control objective
-//
-
-//
-// 0629 - version 1.0 BETA
-//      - readded everything so destroy objective would work
-//
-
-//
-// DoD Spawn Points
-//
-// @PointClass base(Master,CPMaster) size(-16 -16 -36, 16 16 36) color(255 0 0) iconsprite("sprites/DoD/AlliesTeamStart.spr") = info_player_allies : "Allies team start"
-@PointClass base(Master,CPMaster) size(-16 -16 -36, 16 16 36) color(0 255 0) = info_player_allies : "Allies team start"
-[
-]
-
-// @PointClass base(Master,CPMaster) size(-16 -16 -36, 16 16 36) color(0 0 255)  iconsprite("sprites/DoD/AxisTeamStart.spr") = info_player_axis : "Axis team start"
-@PointClass base(Master,CPMaster) size(-16 -16 -36, 16 16 36) color(255 0 0) = info_player_axis : "Axis team start"
-[
-]
-
-@PointClass base(Master,CPMaster) size(-16 -16 -36, 16 16 36) color(0 0 255)  iconsprite("sprites/DoD/ObserverStart.spr") = info_player_observer : "Observer start"
-[
-]
-
-// --- Removed info_initial_player_allies as it is no longer used in 2.0
-// @PointClass  base(Master,CPMaster) size(-16 -16 -36, 16 16 36) color(255 0 0) iconsprite("sprites/DoD/AlliesInitialStart.spr") = info_initial_player_allies: "Allies initial start"
-// [
-// ]
-
-// --- Removed info_initial_player_axis as it is no longer used in 2.0
-// @PointClass base(Master,CPMaster) size(-16 -16 -36, 16 16 36) color(0 0 255)  iconsprite("sprites/DoD/AxisInitialStart.spr") = info_initial_player_axis : "Axis initial start"
-// [
-// ]
-
-
-//
-// Objectives!
-//
-
-// Object Objective
-@PointClass base(Targetname,Target, MoveWith) iconsprite("sprites/DoD/Enigma.spr")  = dod_object : "Object Objective"
-[
-	model(studio) : "Model" : "models/Tnt.mdl"
-	object_name(string) : "Objects Name" : ""
-	object_owner(choices) : "Team that can pick up" : 0 =
-	[
-		0 : "Both"
-		1 : "Allies"
-		2 : "Axis"
-	]
-	object_group(string) : "Group Name" : ""
-	object_takesound(sound) : "Sound when taken"
-	object_capsound(sound) : "Sound when captured"
-	object_dropsound(sound) : "Sound when dropped"
-	object_returnsound(sound) : "Sound when returned"
-	object_carryspeed(string) : "Carry speed (this*speed)" : "0.5"
-	object_resetontouch(choices) : "Reset on touch" : 1 =
-	[
-		0 : "No"
-		1 : "Yes"
-	]
-	object_resettime(integer) : "Reset time (secs, max. 600)" : 60
-	object_cappoints(integer) : "Points to capturer" : 10
-	object_otherpoints(integer) : "Points for teammates" : 5
-	object_donetarget(string) : "Target When Complete" : ""
-
-	object_player_sprite(sprite) : "Sprite to show above player if carried" : "sprites/obj_tnt_sm.spr"
-	object_hud_sprite(sprite) : "Sprite to show on HUD if carried" : "sprites/obj_tnt.spr"
-	master(string) : "Master" 
-]
-
-// Capture points
-@SolidClass base(Targetname,Target, MoveWith) = dod_object_goal : "Object Capturepoint"
-[
-	spawnflags(flags) =
-	[
-		1 : "Dont Multicap" : 0
-		2 : "Cap once per round" : 0
-	]
-	capobj_group(string) : "Group Name" : ""
-	capobj_donetarget(string) : "Target When Complete" : ""
-	capobj_hud_sprite(sprite) : "Sprite to show on HUD if in zone without object" : "sprites/obj_tnt.spr"
-	master(string) : "Master" 
-]
-
-// Scoring events
-@PointClass base(Targetname,Target)  iconsprite("sprites/DoD/PrimaryScore.spr")  = dod_score_ent : "Used for done sequences"
-[
-	team(choices) : "For Team" : 0 =
-	[
-		0 : "Both"
-		1 : "Allies"
-		2 : "Axis"
-	]
-	score_points(integer) : "Points" : 10
-	score_resetitemtime(integer) : "Reset Items Time (0 = none)" : 3
-	score_resetplayerstime(integer) : "Reset Players Time (0 = none)" : 3
-	noise(string) : "Reset Group (blank for all)" : ""
-	noise2(choices) : "End game?" : 0 =
-	[
-		0 : "No"
-		1 : "Yes"
-	]
-	message(string) : "Message" : ""
-	score_nextmap(string) : "Move to Next Map" : ""
-	score_nextmapdelay(integer) : "Change level delay ( 0 = none )" : 3
-]
-
-// Territorial Control Objectives - by Mugsy
-@PointClass base(Targetname,Target)  iconsprite("sprites/DoD/ControlPointMaster.spr") = dod_control_point_master : "Control Point Master"
-[
-	point_give_delay_time(integer) : "Time between point gives ( seconds )" : 20
-	allies_capture_target(string) : "Target when allies capture" : ""
-	axis_capture_target(string) : "Target when axis capture" : ""
-
-	master(string) : "Master" : ""
-	cpm_group(string) : "Group Name" : ""
-]
-
-
-@PointClass base(MoveWith,Master) iconsprite("sprites/DoD/ControlPoint.spr") =  dod_location : "Location" 
-[  
-location_name(string) : "Name of this location" : "" 
-]
-
-@PointClass base(Targetname,Target,MoveWith) iconsprite("sprites/DoD/ControlPoint.spr") = dod_control_point : "Control Point"
-[
-	spawnflags(flags) =
-	[
-		1: "Hide Control Point on HUD" : 0
-	]
-	point_name(string) : "Control Point Name" : "a control point"
-
-	point_can_allies_touch(choices) : "Can Allies Touch This Point?" : 0 =
-	[
-		0 : "Yes"
-		1 : "No"
-	]
-
-	point_can_axis_touch(choices) : "Can Axis Touch This Point?" : 0 =
-	[
-		0 : "Yes"
-		1 : "No"
-	]
-
-	point_pointvalue(integer) : "Time based points value" : 1
-	point_points_for_cap(integer) : "Points given to capturer" : 1
-	point_default_owner(choices) : "Default Owner of the control point" : 0 =
-	[
-		0 : "Neither"
-		1 : "Allies"
-		2 : "Axis"
-	]
-	point_axis_capsound(sound) : "Sound Made when Axis captures" : ""
-	point_allies_capsound(sound) : "Sound Made when Allies captures" : ""
-	point_resetsound(sound) : "Sound Made when point resets" : ""
-	point_allies_model(string) : "Model when allies capture" : "models/w_aflag.mdl"
-	point_axis_model(string) : "Model when axis capture" : "models/w_gflag.mdl"
-	point_reset_model(string) : "Model when point reset" : "models/w_wflag.mdl"
-
-	point_allies_target(string) : "Target when allies capture" : "" 
-	point_axis_target(string) : "Target when axis capture" : ""		
-	point_reset_target(string) : "Target when point reset" : ""
-
-	point_win_string(string) : "String to Show when capped (vars)" : "%p captured the %n for the %t"
-
-	point_group(string) : "Group Name" : ""
-
-	point_index(integer) : "Index of this point ( unique )" : -1
-
-//	point_cap_delaytime(integer) : "Time between possible captures(seconds)" : 1
-]
-
-@SolidClass base(Targetname,Target,MoveWith,Master) = dod_trigger_sandbag : "Sandbag Trigger"
-[
-	sandbag_range(integer) : "Degrees in either direction" : 15
-]
-
-@SolidClass base(Targetname,Target,MoveWith,Master) = dod_capture_area : "Capture Area"
-[
-	area_allies_cancap(choices) : "Can Allies Cap?" : 1 = 
-	[
-		1 : "Yes"
-		0 : "No"
-	]
-
-	area_axis_cancap(choices) : "Can Axis Cap?" : 1 = 
-	[
-		1 : "Yes"
-		0 : "No"
-	]
-
-	area_allies_numcap(integer) : "Number of Allies to cap" : 1 
-	area_axis_numcap(integer) : "Number of Axis to cap" : 1 
-
-	area_time_to_cap(integer) : "Time to cap (sec)" : 5 
-
-	area_allies_startcap(string) : "Target when allies start capture" : "" 
-	area_allies_breakcap(string) : "Target when allies cap is broken" : "" 
-	area_allies_endcap(string) : "Target when allies complete capture" : "" 
-
-	area_axis_startcap(string) : "Target when axis start capture" : ""
-	area_axis_breakcap(string) : "Target when axis cap is broken" : ""
-	area_axis_endcap(string) : "Target when axis complete capture" : ""
-
-	area_hud_sprite(sprite) : "Sprite to show on HUD" : ""
-
-	area_object_group(string) : "Requires Object from this group:" : ""
-]
-
-
-@PointClass base(Targetname,Target) iconsprite("sprites/DoD/PointRelay.spr") = dod_point_relay : "Capture Relay"
-[
-	dod_relay_team(choices) : "Relay triggers point with which team" : 1 =
-	[
-		1 : "Allies"
-		2 : "Axis"
-		0 : "Reset Point"
-	]
-]
-
-@PointClass base(Targetname,Target) iconsprite("sprites/DoD/RoundTimer.spr") = dod_round_timer : "DoD Timer"
-[
-	spawnflags(flags) =
-	[
-		1 : "Shown On HUD" : 1
-		2 : "Start Off" : 0
-	]
-
-	master(string) : "Master" 
-
-	round_timer_length(integer): "Timer Length( in seconds )" : 60 
-]
-
-
-//
 // Weapons!
 //
 
-@PointClass base(Weapon, Targetx)  = weapon_30cal : "30 cal MG" []
-@PointClass base(Weapon, Targetx)  = weapon_amerknife : "American Knife" []
-@PointClass base(Weapon, Targetx)  = weapon_bar: "BAR" []
-@PointClass base(Weapon, Targetx)  = weapon_colt : "Colt Pistol" []
-@PointClass base(Weapon, Targetx)  = weapon_garand : "Garand Rifle" []
-@PointClass base(Weapon, Targetx)  = weapon_gerknife : "German Knife" []
-@PointClass base(Weapon, Targetx)  = weapon_gewehr : "KAR Sniper Rifle" []
-@PointClass base(Weapon, Targetx)  = weapon_kar : "KAR Rifle" []
-@PointClass base(Weapon, Targetx)  = weapon_luger : "Luger Pistol" []
-@PointClass base(Weapon, Targetx)  = weapon_m1carbine : "M1 Carbine" []
-@PointClass base(Weapon, Targetx)  = weapon_mg34 : "MG34" []
-@PointClass base(Weapon, Targetx)  = weapon_mg42 : "MG42" []
-@PointClass base(Weapon, Targetx)  = weapon_mp40 : "MP40" []
-@PointClass base(Weapon, Targetx)  = weapon_mp44: "MP44" []
-@PointClass base(Weapon, Targetx)  = weapon_spade: "spade" []
-@PointClass base(Weapon, Targetx)  = weapon_spring: "Springfield Sniper Rifle" [] 
-@PointClass base(Weapon, Targetx)  = weapon_thompson: "Thompson" []
 
-@PointClass base(Weapon, Targetx)  = ammo_30cal: "30 cal Ammo" []
-@PointClass base(Weapon, Targetx)  = ammo_bar: "BAR Ammo" []
-@PointClass base(Weapon, Targetx)  = ammo_colt : "Colt Ammo" []
-@PointClass base(Weapon, Targetx)  = ammo_garand : "Garand Ammo" []
-@PointClass base(Weapon, Targetx)  = ammo_gewehr: "K98 Sniper Ammo" []
-@PointClass base(Weapon, Targetx)  = ammo_kar: "KAR Ammo" []
-@PointClass base(Weapon, Targetx)  = ammo_luger : "Luger Ammo" []
-@PointClass base(Weapon, Targetx)  = ammo_m1carbine : "M1 Carbine Ammo" []
-@PointClass base(Weapon, Targetx)  = ammo_mg34 : "MG34 Ammo" []
-@PointClass base(Weapon, Targetx)  = ammo_MG42 : "MG42 Ammo" []
-@PointClass base(Weapon, Targetx)  = ammo_mp40 : "MP40 Ammo" []
-@PointClass base(Weapon, Targetx)  = ammo_mp44 : "MP44 Ammo" []
-@PointClass base(Weapon, Targetx)  = ammo_spring : "Springfield Ammo" [] 
-@PointClass base(Weapon, Targetx)  = ammo_thompson : "Thompson Ammo" []
+// NOTE:  Some are missing
+
+@PointClass studio("models/w_30cal.mdl") base(Weapon, Targetx)  = weapon_30cal : "30 cal MG" []
+@PointClass studio("models/w_amerknife.mdl") base(Weapon, Targetx)  = weapon_amerknife : "American Knife" []
+@PointClass studio("models/w_bar.mdl")  base(Weapon, Targetx)  = weapon_bar: "BAR" []
+@PointClass studio("models/w_bren.mdl") base(Weapon, Targetx)  = weapon_bren: "British Bren" []
+@PointClass studio("models/w_colt.mdl") base(Weapon, Targetx)  = weapon_colt : "Colt Pistol" []
+@PointClass studio("models/w_enfield.mdl")  base(Weapon, Targetx)  = weapon_enfield: "British Enfield" []
+@PointClass studio("models/w_garand.mdl") base(Weapon, Targetx)  = weapon_garand : "Garand Rifle" []
+@PointClass studio("models/w_gerknife.mdl") base(Weapon, Targetx)  = weapon_gerknife : "German Knife" []
+@PointClass studio("models/w_gewehr.mdl") base(Weapon, Targetx)  = weapon_gewehr : "KAR Sniper Rifle" []
+@PointClass studio("models/w_greasegun.mdl") base(Weapon, Targetx)  = weapon_greasegun : "Greasegun" []
+@PointClass studio("models/w_kar.mdl")  base(Weapon, Targetx)  = weapon_kar : "KAR Rifle" []
+@PointClass studio("models/w_luger.mdl")  base(Weapon, Targetx)  = weapon_luger : "Luger Pistol" []
+@PointClass studio("models/w_m1carbine.mdl") base(Weapon, Targetx)  = weapon_m1carbine : "M1 Carbine" []
+@PointClass studio("models/w_mg34.mdl") base(Weapon, Targetx)  = weapon_mg34 : "MG34" []
+@PointClass studio("models/w_mg42.mdl") base(Weapon, Targetx)  = weapon_mg42 : "MG42" []
+@PointClass studio("models/w_mp40.mdl") base(Weapon, Targetx)  = weapon_mp40 : "MP40" []
+@PointClass studio("models/w_mp44.mdl") base(Weapon, Targetx)  = weapon_mp44: "MP44" []
+@PointClass studio("models/w_spade.mdl") base(Weapon, Targetx)  = weapon_spade: "spade" []
+@PointClass studio("models/w_spring.mdl") base(Weapon, Targetx)  = weapon_spring: "Springfield Sniper Rifle" [] 
+@PointClass studio("models/w_sten.mdl") base(Weapon, Targetx)  = weapon_sten: "British Sten" []
+@PointClass studio("models/w_thompson.mdl") base(Weapon, Targetx)  = weapon_thompson: "Thompson" []
+
+@PointClass studio("models/w_bazooka.mdl") base(Weapon, Targetx)  = weapon_bazooka: "Bazooka" []
+@PointClass studio("models/w_pschrek.mdl") base(Weapon, Targetx)  = weapon_pschreck: "Panzerschreck" []
+@PointClass studio("models/w_piat.mdl") base(Weapon, Targetx)  = weapon_piat: "PIAT" []
+
+@PointClass studio("models/allied_ammo.mdl") base(Weapon, Targetx)  = ammo_30cal: "30 cal Ammo" []
+@PointClass studio("models/allied_ammo.mdl") base(Weapon, Targetx)  = ammo_bar: "BAR Ammo" []
+@PointClass studio("models/brit_ammo.mdl") base(Weapon, Targetx)  = ammo_bren: "Bren Ammo" []
+@PointClass studio("models/allied_ammo.mdl") base(Weapon, Targetx)  = ammo_colt : "Colt Ammo" []
+@PointClass studio("models/brit_ammo.mdl") base(Weapon, Targetx)  = ammo_enfield: "Enfield Ammo" []
+@PointClass studio("models/allied_ammo.mdl") base(Weapon, Targetx)  = ammo_garand : "Garand Ammo" []
+@PointClass studio("models/axis_ammo.mdl") base(Weapon, Targetx)  = ammo_gewehr: "K98 Sniper Ammo" []
+@PointClass studio("models/axis_ammo.mdl") base(Weapon, Targetx)  = ammo_kar: "KAR Ammo" []
+@PointClass studio("models/axis_ammo.mdl") base(Weapon, Targetx)  = ammo_luger : "Luger Ammo" []
+@PointClass studio("models/allied_ammo.mdl") base(Weapon, Targetx)  = ammo_m1carbine : "M1 Carbine Ammo" []
+@PointClass studio("models/axis_ammo.mdl") base(Weapon, Targetx)  = ammo_mg34 : "MG34 Ammo" []
+@PointClass studio("models/axis_ammo.mdl")  base(Weapon, Targetx)  = ammo_MG42 : "MG42 Ammo" []
+@PointClass studio("models/axis_ammo.mdl") base(Weapon, Targetx)  = ammo_mp40 : "MP40 Ammo" []
+@PointClass studio("models/axis_ammo.mdl") base(Weapon, Targetx)  = ammo_mp44 : "MP44 Ammo" []
+@PointClass studio("models/allied_ammo.mdl") base(Weapon, Targetx)  = ammo_spring : "Springfield Ammo" [] 
+@PointClass studio("models/brit_ammo.mdl") base(Weapon, Targetx)  = ammo_sten: "Sten Ammo" []
+@PointClass studio("models/allied_ammo.mdl") base(Weapon, Targetx)  = ammo_thompson : "Thompson Ammo" []
+
+@PointClass studio("models/w_bazooka_rocket.mdl") base(Weapon, Targetx)  = ammo_bazooka : "Bazooka Ammo" []
+@PointClass studio("models/w_pschrek_rocket.mdl") base(Weapon, Targetx)  = ammo_pschreck : "Panzerschreck Ammo" []
+@PointClass studio("models/w_piat_rocket.mdl") base(Weapon, Targetx)  = ammo_piat : "PIAT Ammo" []
+
+
+// ===============================================================================
+// CUT SCENE/SINGLE PLAYER SPECIFIC STUFF
+// ===============================================================================
+
+//* An aiscripted_sequence is almost identical to a @scripted_sequence; see the notes on that entity
+//* for more details. The only real difference is that an aiscripted_sequence can leave the monster in
+//* Ambush mode if you want it to, and it has higher priority. (a scripted_sequence has the same priority
+//* if its "Override AI" flag is set.)
+@PointClass base(Targetname, Angles, Targetx) size(-16 -16 0, 16 16 72) color(255 0 255) = aiscripted_sequence : "AI Scripted Sequence"
+[
+	//* When the animation starts, this target will be triggered. (The standard 'target' value is triggered only when the sequence ends.)
+	m_iszFireOnBegin(string): "Target after movement"
+	//* Specify either a classname (e.g. monster_barney) or a targetname to look for.
+	m_iszEntity(string) : "Target Monster"
+	//* Animation to play after moving. Note that a @monster_generic won't add any sounds or
+	//* special effects to its animations. If you need those to appear, you'll have to use the
+	//* specific monster_&lt;whatever&gt; entities, instead.
+	m_iszPlay(string) : "Action Animation" : ""
+	//* If you specify an idle animation, then when the level begins the monster will be frozen and made
+	//* to play that animation. Later, when the sequence entity gets triggered, the monster will
+	//* play the action animation. After that it reverts to its normal AI.
+	m_iszIdle(string) : "Idle Animation" : ""
+	//* If "Target Monster" is a classname, the game picks a random monster of that type from within this
+	//* search radius.
+	m_flRadius(integer) : "Search Radius" : 512
+	// Removed m_flRepeat- it never did anything.
+	m_fMoveTo(choices) : "Move to Position" : 0 =
+	[
+		//* Don't move at all. (Turn Type will be ignored.)
+		0 : "No (don't turn)"
+		//* Walk to the entity, then turn.
+		1 : "Walk"
+		//* Run to the entity, then turn.
+		2 : "Run"
+		//* Teleport to the entity. Also, the monster's angle will instantly change to
+		//* whatever is specified in its "turn type".
+		//*   Spirit fixes a bug which used to freeze a monster when playing a script with this setting.
+		4 : "Instantaneous"
+		5 : "No - Only turn"
+	]
+
+	m_fTurnType(choices) : "Turn Type" : 0 =
+	[
+		//* Turn to the angle given by the sequence entity's "angle" value.
+		0 : "Match Angle"
+		//* Turn to look at the sequence entity.
+		1 : "Turn to face"
+		2 : "Don't Turn"
+	]
+	target(target_destination) : "Target to fire when done"
+	m_iFinishSchedule(Choices) : "AI Schedule when done" : 0 =
+	[
+		0 : "Default AI"
+		1 : "Ambush"
+	]
+	spawnflags(Flags) = 
+	[
+		4 : "Repeatable"		: 0
+		8 : "Leave Corpse"	: 0
+	]
+]
+
+@PointClass base(Target, Angles) size(-4 -4 -4, 4 4 4) color(0 255 0) = info_intermission : "Intermission Spot" []
+
+@PointClass base(Targetname) = info_landmark : "Transition Landmark" []
+
+
+// -----------------------------------------------------------------
+// Added support for Hint Type and Activity Type selection for nodes
+// Tim Holt ("Waldo")
+// -----------------------------------------------------------------
+@PointClass base(HintTypeChoices, ActivityTypeChoices) size(-24 -24 -4, 24 24 4) color(255 255 0) = info_node : "ai node" []
+
+
+
+// (The thing most noticeably lacking from half-life is the option to make a monster
+// fire on command. So don't say I never give you anything...)
+//*   Note that a @monster_generic won't usually do these actions correctly.
+//*   If you're using this to make a @monster_barney shoot, it'll look odd (as if he's shooting bullets from his
+//* knuckles) unless you first use a scripted_sequence (playing the "draw" animation) or env_customize
+//* (setting body = 1) to put his pistol into his hand; as seen in the SpiritDemo level.
+@PointClass base(Targetname, Targetx, Angles) size(-16 -16 0, 16 16 72) color(255 0 255) = scripted_action : "Scripted Action"
+[
+	//* When the action starts, this target will be triggered. (The standard 'target' value is triggered only when the sequence ends.)
+	m_iszFireOnBegin(string): "Target after movement"
+	//* Specify either a classname (e.g. monster_barney) or a targetname to look for.
+	m_iszEntity(string) : "Monster to affect"
+	m_fMoveTo(choices) : "Move to Position" : 5 =
+	[
+		5 : "No - Only turn"
+		//* Don't move at all. (Turn Type will be ignored.)
+		0 : "No (don't turn)"
+		//* Walk to the entity, then turn.
+		1 : "Walk"
+		//* Run to the entity, then turn.
+		2 : "Run"
+		//* Teleport to the entity. Also, the monster's angle will instantly change to
+		//* whatever is specified in its "turn type".
+		//*   Spirit fixes a bug which used to freeze a monster when playing a script with this setting.
+		4 : "Instantaneous"
+	]
+	m_fTurnType(choices) : "Turn Type" : 1 =
+	[
+		//* Turn to the angle given by the sequence entity's "angle" value.
+		0 : "Match Angle"
+		//* Turn to look at the "entity to attack", or at the sequence entity if no "entity to attack" is specified.
+		//*   Most monsters won't be able to shoot directly at the "entity to attack" unless this option is selected.
+		1 : "Turn to face"
+		2 : "Don't Turn"
+	]
+	//* If blank, the monster will attack the scripted_action entity.
+	m_iszAttack(string) : "Entity to attack"
+	m_fAction(choices) : "Action to perform" : 0 =
+	[
+		//*   Headcrabs: leap. Houndeye: sonic attack. Barney: fire pistol... and so on. Most monsters have a ranged attack of some kind.
+		0 : "Ranged Attack"
+		//*   Grunts and assassins: throw or launch a grenade at the "attack" entity.
+		//* Alien Controller: big homing fireball.
+		1 : "Ranged Attack 2"
+		//*   Scientist: Heal. Everyone else: Kick, punch, bite, slash with claws, etc.
+		2 : "Melee Attack"
+		//*   Assassins: kick. Bullsquids:bite. Headcrab: rear up on hind legs.
+		//* Big Momma: lay a baby headcrab. Gargantua: Flame Thrower.
+		3 : "Melee Attack 2"
+		//*   Grunts: place a grenade on the ground.
+		4 : "Special Attack"
+		//*   Don't know of any monsters which use this, but feel free to try...
+		5 : "Special Attack 2"
+		//*   Grunts and barneys: Reload. The same thing can be done with a @scripted_sequence, but it's available here for convenience.
+		6 : "Reload"
+		//*   Assassins: jump to the "attack" entity. Houndeyes, Bullsquids and Big Momma: just jump.
+		7 : "Jump"
+		//*   Just turn and/or move.
+		8 : "No action"
+	]
+	//* If "Monster to affect" is a classname, the game picks a random monster of that type from within this
+	//* search radius.
+	m_flRadius(integer) : "Search Radius" : 512
+	spawnflags(Flags) = 
+	[
+		//* Default behaviour for a scripted_action is to delete itself after finishing.
+		4 : "Repeatable"	: 0
+		//* When the player shoots a monster or requests a scientist to follow him, scripts the
+		//* monster is playing will usually be interrupted.
+		32: "No Interruptions"	: 0
+		//* If this isn't ticked, the script will be ignored while the monster is in combat.
+		64: "Override AI"	: 0
+	]
+]
+
+//* If no targetname is given, a scripted_sentence will play sentences as often as its "refire" rate permits.
+@PointClass base(Targetname, Targetx) size(-16 -16 0, 16 16 72) color(0 0 255) = scripted_sentence : "Scripted Sentence"
+[
+	spawnflags(Flags) = 
+	[
+		1 : "Fire Once"        : 1
+		2 : "Followers Only"   : 0
+		4 : "Interrupt Speech" : 1
+		8 : "Concurrent"       : 0
+	]
+	sentence(string) : "Sentence Name" : ""
+	entity(string) : "Target Monster (blank for HEV)"
+	duration(string) : "Sentence Time" : "3"
+	//* If "Target Monster" is a classname, the game picks a random monster of that type from within this
+	//* search radius.
+	radius(integer) : "Search Radius" : 512
+	refire(string) : "Delay Before Refire" : "3"
+	listener(string) : "Listener Name/Class" : "player"
+	volume(string) : "Volume 0-10" : "10"
+	attenuation(Choices) : "Sound Radius" : 0 =
+	[
+		0 : "Small Radius"
+		1 : "Medium Radius"
+		2 : "Large  Radius"
+		3 : "Play Everywhere"
+	]
+]
+
+//* If a scripted_sequence has no targetname, it will start playing as soon as the level begins.
+//* If two or more scripted_sequences have the same targetname, they will be synchronised so that
+//* no matter how long it takes the monsters to walk to the sequence entities, their action animations
+//* will start at the same time.
+@PointClass base(Targetname, Targetx, Angles) size(-16 -16 0, 16 16 72) color(255 0 255) = scripted_sequence : "Scripted Sequence"
+[
+	//* When the animation starts, this target will be triggered. (The standard 'target' value is triggered only when the sequence ends.)
+	m_iszFireOnBegin(string): "Target after movement"
+	//* Specify either a classname (e.g. monster_barney) or a targetname to look for.
+	m_iszEntity(string) : "Target Monster"
+	//* Animation to play after moving. Note that a monster_generic won't add any sounds or
+	//* special effects to its animations. If you need those to appear, you'll have to use the
+	//* monster_&lt;whatever&gt; entities, instead.
+	m_iszPlay(string) : "Action Animation" : ""
+	//*   If you specify an idle animation, then when the level begins the monster will be frozen and made
+	//* to play that animation. Later, when the sequence entity gets triggered, the monster will
+	//* play the action animation. After that it reverts to its normal AI.
+	//*   If there are any other scripted_sequences with the same name as this one, then the monster will also play the "idle" animation
+	//* while it's waiting for the other sequences to be ready to start.
+	//*   And finally, if the action animation is the same as the idle animation, then any time the monster would be playing the idle
+	//* animation, instead it will be frozen.
+	//*   Obvious, eh? ;)
+	m_iszIdle(string) : "Idle Animation" : ""
+	//* If "Target Monster" is a classname, the game picks a random monster of that type from within this
+	//* search radius.
+	m_flRadius(integer) : "Search Radius" : 512
+	m_fMoveTo(choices) : "Move to Position" : 0 =
+	[
+		//* Don't move at all. (Turn Type will be ignored.)
+		0 : "No (don't turn)"
+		//* Walk to the entity, then turn.
+		1 : "Walk"
+		//* Run to the entity, then turn.
+		2 : "Run"
+		//* Teleport to the entity. Also, the monster's angle will instantly change to
+		//* whatever is specified in its "turn type".
+		//*   Spirit fixes a bug which used to freeze a monster when playing a script with this setting.
+		4 : "Instantaneous"
+		5 : "No - Only turn"
+	]
+	m_fTurnType(choices) : "Turn Type" : 0 =
+	[
+		//* Turn to the angle given by the sequence entity's "angle" value.
+		0 : "Match Angle"
+		//* Turn to look at the sequence entity.
+		1 : "Turn to face"
+		2 : "Don't Turn"
+	]
+	spawnflags(Flags) = 
+	[
+		//* Default behaviour for a sequence is to delete itself after finishing.
+		4 : "Repeatable"	: 0
+		//* If the animation includes the monster dying, don't fade the corpse afterwards.
+		8 : "Leave Corpse"	: 0
+		//* If the player shoots a monster or requests a scientist/barney to follow him, any
+		//* scripts the monster is playing will usually be interrupted.
+		32: "No Interruptions"	: 0
+		//* Unless you tick this, the monster won't play the script while in combat.
+		64: "Override AI"	: 0
+		//* Even if the animation makes the monster look like it's walking around, DON'T shift
+		//* the monster to its apparent new location when the animation ends.
+		128: "No Script Movement" : 0
+		//* Some death sequences kill the monster automatically (e.g. "herodie" in loader.mdl)
+		//* but for most you'll have to tick this box. This is affected by Leave Corpse in the
+		//* obvious way.
+		256: "Monster Dies" : 0
+	]
+]
+
+@PointClass iconsprite("sprites/DoD/Announcement.spr") base(Targetname) = speaker : "Announcement Speaker"
+[
+	preset(choices) :"Announcement Presets" : 0 =
+	[
+		0: "None"
+		1: "C1A0 Announcer"
+		2: "C1A1 Announcer"
+		3: "C1A2 Announcer"
+		4: "C1A3 Announcer"
+		5: "C1A4 Announcer"  
+		6: "C2A1 Announcer"
+		7: "C2A2 Announcer"
+		// 8: "C2A3 Announcer"
+		9: "C2A4 Announcer"
+		// 10: "C2A5 Announcer"
+		11: "C3A1 Announcer"
+		12: "C3A2 Announcer"
+	]
+	message(string) : "Sentence Group Name"
+	health(integer) : "Volume (10 = loudest)" : 5
+	spawnflags(flags) =
+	[
+		1: "Start Silent" : 0
+	]
+]
+
+
+@SolidClass base(Targetname) = trigger_transition : "Trigger: Select Transition Area" []
+
+// -----------------------------------------------------------------
+// EXPERIMENTAL
+// -----------------------------------------------------------------
+@PointClass base(Monster) size(-16 -16 0, 16 16 72) = monster_axis_grunt : "Axis Grunt" 
+[
+	netname(string) : "Squad Name"
+	spawnflags(Flags) = 
+	[
+		//* Only needed if you use the Squad Name value. If you define a Squad using the Squad Name value, but
+		//* none of them are flagged as a Squad Leader, then the squad won't get linked together properly.
+		32 : "SquadLeader" : 0
+		//* Ensure the player can't take this monster's ammo or weapons.
+		1024: "Don't Drop Gun" : 0
+	]
+	weapons(Choices) : "Weapons" : 1 =
+	[
+		1 : "Luger"
+		2 : "KAR (Light)"
+		4 : "MP40 (Medium)"
+		8 : "MP44 (Heavy)"
+		18 : "KAR + HG (Light)"
+		20 : "MP40 + HG (Med)"
+		24 : "MP44 + HG (Heavy)"
+	]
+]
+
+@PointClass base(Monster) size(-16 -16 0, 16 16 72) = monster_allied_grunt : "Allied Grunt" 
+[
+	netname(string) : "Squad Name"
+	spawnflags(Flags) = 
+	[
+		//* Only needed if you use the Squad Name value. If you define a Squad using the Squad Name value, but
+		//* none of them are flagged as a Squad Leader, then the squad won't get linked together properly.
+		32 : "SquadLeader" : 0
+		//* Ensure the player can't take this monster's ammo or weapons.
+		1024: "Don't Drop Gun" : 0
+	]
+	weapons(Choices) : "Weapons" : 1 =
+	[
+		1 : "Colt"
+		2 : "Garand (Light)"
+		4 : "Thompson (Medium)"
+		8 : "BAR (Heavy)"
+		18 : "Garand + HG (Light)"
+		20 : "Thompson + HG (Med)"
+		24 : "BAR + HG (Heavy)"
+	]
+]
+
+
+@PointClass base(Monster,TalkMonster) size(-16 -16 0, 16 16 72) = monster_allied_barney : "Allied Barney"
+[
+    body(Choices) : "Body" : -1 =
+	[
+		-1: "Random"
+		0 : "Light"
+		1 : "Medium"
+		2 : "Heavy"
+		3 : "Medic"
+		4 : "MP"
+	]
+	spawnflags(Flags) = 
+	[
+		//* Ensure the player can't take this monster's ammo or weapons.
+		1024: "Don't Drop Gun" : 0
+	]
+
+]
+
+@PointClass base(Target, Targetname, Angles, MoveWith) = particle_shooter : "Particle Shooter" 
+[
+	group_id(integer) : "Group Id" : 1
+	num_particles(integer) : "Number of Particles ( -1 = infinite )" : 10
+	fire_delay(string) : "Delay between shots" : "0.2"
+	
+	particle_life(string) : "particle life" : "4.0"
+
+	particle_speed(string) : "particle velocity" : "200"
+	vel_variance(string) : "velocity variance" : "0.15"
+	spin_speed(integer) : "spin ( degrees per sec )" : 0
+	gravity(string) : "gravity" : "0.0"
+	damping_time(string) : "damping time" : "0.0"
+	damping_vel(string) : "damping velocity" : "0.0"
+
+	spawnflags(Flags) = 
+	[
+		1 : "Repeatable" 	: 0
+		2 : "Spiral" : 0
+		4 : "Collide with world" : 0
+		8 : "Affected by force" : 0
+		16 : "Animate" : 0
+		32 : "Start on" : 0
+		64 : "Kill on collide" : 0
+		128 : "Ripple when hitting water" : 0
+	]
+
+	model(studio) : "Sprite" : ""
+	size(string) : "particle size" : "16.0"
+
+	colour_red(integer) : "colour: red ( 0 - 255 )" : 255
+	colour_green(integer) : "colour: green ( 0 - 255 )" : 255
+	colour_blue(integer) : "colour: blue ( 0 - 255 )" : 255
+	brightness(string) : "brightness" : "190"
+	fade_speed(string) : "fade speed" : "0.0"
+	
+	scale_speed(string) : "scale speed" : "1.0"
+	framerate(string) : "framerate" : "0"
+
+	rendermode(Choices) : "Render mode" : 5 = 
+	[
+		0 : "Normal"		//kRenderNormal,			// src
+		1 : "Trans Color"	//kRenderTransColor,		// c*a+dest*(1-a)
+		2 : "Trans Texture" //kRenderTransTexture,	// src*a+dest*(1-a)
+		3 : "Glow"			//kRenderGlow,			// src*a+dest -- No Z buffer checks
+		4 : "Indexed Alpha"   //kRenderTransAlpha,		// src*srca+dest*(1-srca)
+		5 : "Additive"		//kRenderTransAdd,		// src*a+dest
+	]
+]
+
+@PointClass base(Targetname) iconsprite("sprites/DoD/EnvGlobal.spr") color(255 255 128) = dod_preround : "Pre-Round Trigger"
+[
+	allieswin(string) : "Trigger if allies won last round"
+	alliesloose(string) : "Trigger if allies lost last round"
+	axiswin(string) : "Trigger if axis won last round"
+	axisloose(string) : "Trigger if axis lost last round"
+	draw(string) : "Trigger if last round was draw"
+]
