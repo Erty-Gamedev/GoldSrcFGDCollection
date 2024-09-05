@@ -81,7 +81,7 @@
 		1 : "Yes"
 	]
 	zhlt_embedlightmapresolution(integer) : "ZHLT Embed Light Map Resolution" : 4
-	_minlight(string) : "Minimum Light Level"
+	_minlight(string) : "Minimum Light Level (0.0 - 1.0)"
 ]
 @BaseClass = ZHLT_point
 [
@@ -327,6 +327,7 @@
 		9 : "Slow strobe"
 	]
 	pattern(string) : "Custom Appearance"
+	zhlt_stylecoring(integer) : "Coring (black threshold for named lights)"
 ]
 
 @BaseClass = LightSpot
@@ -1611,7 +1612,7 @@
 
 @PointClass base(Targetname, Angles, ZHLT_point) iconsprite("sprites/lightbulb.spr") = light_environment : "Environment" 
 [
-	pitch(integer) : "Pitch" : 0
+	pitch(integer) : "Pitch" : -90
 	_light(color255) : "Brightness" : "255 255 128 200"
 ]
 
