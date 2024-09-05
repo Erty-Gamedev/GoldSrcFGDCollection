@@ -172,9 +172,8 @@
 	rendercolor(color255) : "FX Color (R G B)" : "0 0 0"
 ]
 
-@BaseClass base(Targetname, Targetx, RenderFields, Appearflags, Angles) size(0 0 0, 32 32 32) color(80 0 200) = Ammo []
 @BaseClass base(Targetname, Targetx, RenderFields, Appearflags, Angles, BodySkin) size(-16 -16 0, 16 16 32) color(0 0 200) = Weapon []
-@BaseClass base(Targetname, Target, RenderFields, Appearflags, Angles) size(-16 -16 0, 16 16 36) = ItemBase []
+@BaseClass base(Targetname, Target, RenderFields, Appearflags, Angles, BodySkin) size(-16 -16 0, 16 16 36) = ItemBase []
 @BaseClass base(Appearflags, Angles) size(-16 -16 -36, 16 16 36) color(0 255 0) studio("models/player.mdl") = PlayerClass []
 
 
