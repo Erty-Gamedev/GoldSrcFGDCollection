@@ -1,6 +1,6 @@
 // ---------------------------------------------------------------------------------
 // Day of Defeat 1.0 game definition file (.fgd) 
-// Version 4.0
+// Version 4.1
 // For Worldcraft 3.3 and above, and Half-Life 1.0.0.9 and above
 // ---------------------------------------------------------------------------------
 // Based on the original by Justin DeJong aka "N0TH1NG" R.I.P.
@@ -11,6 +11,7 @@
 //    Matt Boone aka "Mugsy"
 //    Tim Holt aka "Waldo"
 //    Brandon Russell aka "Axis"
+//    Pet (rogue.pet@gmail.com)
 // ---------------------------------------------------------------------------------
 
 @SolidClass = worldspawn : "World entity"
@@ -1831,7 +1832,13 @@ location_name(string) : "Name of this location" : ""
 	master(string) : "Master" 
 ]
 
-
+//
+// Game_player_equip added by Pet - rogue.pet@gmail.com
+//
+@PointClass base(Targetname, Target) = game_player_equip : "Game Player Equip"
+[
+    master(string) : "Master"
+]
 
 //
 // Info entities
@@ -3012,7 +3019,7 @@ location_name(string) : "Name of this location" : ""
 	m_iszEntity(string) : "Target Monster"
 	//* Animation to play after moving. Note that a @monster_generic won't add any sounds or
 	//* special effects to its animations. If you need those to appear, you'll have to use the
-	//* specific monster_&lt;whatever&gt; entities, instead.
+	//* specific monster_<whatever> entities, instead.
 	m_iszPlay(string) : "Action Animation" : ""
 	//* If you specify an idle animation, then when the level begins the monster will be frozen and made
 	//* to play that animation. Later, when the sequence entity gets triggered, the monster will
@@ -3186,7 +3193,7 @@ location_name(string) : "Name of this location" : ""
 	m_iszEntity(string) : "Target Monster"
 	//* Animation to play after moving. Note that a monster_generic won't add any sounds or
 	//* special effects to its animations. If you need those to appear, you'll have to use the
-	//* monster_&lt;whatever&gt; entities, instead.
+	//* monster_<whatever> entities, instead.
 	m_iszPlay(string) : "Action Animation" : ""
 	//*   If you specify an idle animation, then when the level begins the monster will be frozen and made
 	//* to play that animation. Later, when the sequence entity gets triggered, the monster will
