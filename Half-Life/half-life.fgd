@@ -570,31 +570,6 @@
 // Entities
 //
 
-@PointClass base(Scripted) size(-16 -16 0, 16 16 72) color(255 0 255) = aiscripted_sequence : "AI Scripted Sequence"
-[
-	m_iFinishSchedule(choices) : "AI Schedule when done" : 0 =
-	[
-		0 : "Default AI"
-		1 : "Ambush"
-	]
-	spawnflags(flags) = 
-	[
-		4 : "Repeatable"    : 0
-		8 : "Leave Corpse"  : 0
-	]
-]
-
-@PointClass base(Scripted) size(-16 -16 0, 16 16 72) color(255 0 255) = scripted_sequence : "Scripted Sequence"
-[
-	m_iszIdle(string) : "Idle Animation" : ""
-	spawnflags(flags) = 
-	[
-		32: "No Interruptions"      : 0
-		64: "Override AI"           : 0
-		128: "No Script Movement"   : 0
-	]
-]
-
 @PointClass iconsprite("sprites/speaker.spr") base(Targetname) = ambient_generic : "Plays Sounds/Sentences"
 [
 	message(sound) : "WAV Name"
@@ -653,6 +628,43 @@
 	]
 ]
 
+@SolidClass base(Targetname, Target, Master, RenderFields, ZHLT) = button_target : "Target Button"
+[
+	spawnflags(flags) =
+	[
+		1: "Use Activates" : 1
+		2: "Start On" : 0
+	]
+]
+
+@PointClass base(GibshooterBase) = gibshooter : "Gib Shooter" []
+
+@PointClass iconsprite("sprites/speaker.spr") base(Targetname) = speaker : "Announcement Speaker"
+[
+	preset(choices) :"Announcement Presets" : 0 =
+	[
+		0: "None"
+		1: "C1A0 Announcer"
+		2: "C1A1 Announcer"
+		3: "C1A2 Announcer"
+		4: "C1A3 Announcer"
+		5: "C1A4 Announcer"  
+		6: "C2A1 Announcer"
+		7: "C2A2 Announcer"
+		// 8: "C2A3 Announcer"
+		9: "C2A4 Announcer"
+		// 10: "C2A5 Announcer"
+		11: "C3A1 Announcer"
+		12: "C3A2 Announcer"
+	]
+	message(string) : "Sentence Group Name"
+	health(integer) : "Volume (10 = loudest)" : 5
+	spawnflags(flags) =
+	[
+		1: "Start Silent" : 0
+	]
+]
+
 
 //
 // Ammo
@@ -667,15 +679,6 @@
 @PointClass base(Weapon) studio("models/w_rpgammo.mdl") = ammo_rpgclip : "RPG Ammo" []
 @PointClass base(Weapon) studio("models/w_gaussammo.mdl") = ammo_gaussclip : "Gauss Gun Ammo" []
 @PointClass base(Weapon) studio("models/w_crossbow_clip.mdl") = ammo_crossbow : "Crossbow Ammo" []
-
-@SolidClass base(Targetname, Target, Master, RenderFields, ZHLT) = button_target : "Target Button"
-[
-	spawnflags(flags) =
-	[
-		1: "Use Activates" : 1
-		2: "Start On" : 0
-	]
-]
 
 
 //
@@ -992,6 +995,11 @@
 		2: "Play Once" : 0
 	]
 ]
+
+
+//
+// Functional Entities
+//
 
 @SolidClass base(Breakable) = func_breakable : "Breakable Object" []
 
@@ -1461,8 +1469,6 @@
 	outcount(target_destination) : "Counter for OUT players"
 ]
 
-@PointClass base(GibshooterBase) = gibshooter : "Gib Shooter" []
-
 
 //
 // Info Entities
@@ -1864,6 +1870,11 @@
 	m_imaxlivechildren(integer) : "Max live children" : 5
 ]
 
+
+//
+// Multi
+//
+
 @PointClass base(Targetname) color(255 128 0) = multi_manager : "MultiTarget Manager" 
 [
 	spawnflags(flags) = 
@@ -1876,6 +1887,11 @@
 [
 	globalstate(string) : "Global State Master"
 ]
+
+
+//
+// Path Nodes
+//
 
 @PointClass base(Targetname, Angles) size(16 16 16) color(247 181 82) = path_corner : "Moving platform stop"
 [
@@ -1926,6 +1942,36 @@
 
 @PointClass base(Targetname) size(-16 -16 -16, 16 16 16) = player_weaponstrip : "Strips player's weapons" []
 
+
+//
+// Scripted
+//
+
+@PointClass base(Scripted) size(-16 -16 0, 16 16 72) color(255 0 255) = aiscripted_sequence : "AI Scripted Sequence"
+[
+	m_iFinishSchedule(choices) : "AI Schedule when done" : 0 =
+	[
+		0 : "Default AI"
+		1 : "Ambush"
+	]
+	spawnflags(flags) = 
+	[
+		4 : "Repeatable"    : 0
+		8 : "Leave Corpse"  : 0
+	]
+]
+
+@PointClass base(Scripted) size(-16 -16 0, 16 16 72) color(255 0 255) = scripted_sequence : "Scripted Sequence"
+[
+	m_iszIdle(string) : "Idle Animation" : ""
+	spawnflags(flags) = 
+	[
+		32: "No Interruptions"      : 0
+		64: "Override AI"           : 0
+		128: "No Script Movement"   : 0
+	]
+]
+
 @PointClass base(Targetname, Targetx) size(-16 -16 0, 16 16 72) color(255 0 255) = scripted_sentence : "Scripted Sentence"
 [
 	spawnflags(flags) = 
@@ -1948,32 +1994,6 @@
 		1 : "Medium Radius"
 		2 : "Large  Radius"
 		3 : "Play Everywhere"
-	]
-]
-
-@PointClass iconsprite("sprites/speaker.spr") base(Targetname) = speaker : "Announcement Speaker"
-[
-	preset(choices) :"Announcement Presets" : 0 =
-	[
-		0: "None"
-		1: "C1A0 Announcer"
-		2: "C1A1 Announcer"
-		3: "C1A2 Announcer"
-		4: "C1A3 Announcer"
-		5: "C1A4 Announcer"  
-		6: "C2A1 Announcer"
-		7: "C2A2 Announcer"
-		// 8: "C2A3 Announcer"
-		9: "C2A4 Announcer"
-		// 10: "C2A5 Announcer"
-		11: "C3A1 Announcer"
-		12: "C3A2 Announcer"
-	]
-	message(string) : "Sentence Group Name"
-	health(integer) : "Volume (10 = loudest)" : 5
-	spawnflags(flags) =
-	[
-		1: "Start Silent" : 0
 	]
 ]
 
