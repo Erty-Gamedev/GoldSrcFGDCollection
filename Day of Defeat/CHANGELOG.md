@@ -132,3 +132,52 @@ Jan 6, 2001 - Tim Holt (0.7.5)
 > - Added monster_axis_grunt
 > - Added monster_allied_grunt
 > - Added monster_allied_barney
+
+## v1.1.0
+Originally named version 4.0 and committed by Yui.
+Comment field changelog was removed but preserved in a re-formatted form [above](#v100).
+No formal changelog was given, however here is a summary based on a diff comparison:
+
+* Entity property changes:
+  - `cam_fade` added to DoDCam base class
+  - `m_iClass` added to BaseTank base class
+  - `master` and `hintmsg` to env_message, as well as added more spawnflags:
+    - *Allies Only* (4)
+    - *Axis Only* (8)
+    - *Allied Player Only* (16)
+    - *Axis Player Only* (32)
+  - Added *Ignore Allies* (1) and *Ignore Axis* (2) spawnflags to game_zone_player
+  - Removed *Trigger at every round start* (512) spawnflag from trigger_auto
+  - Removed *Reset at round restart* (1) from trigger_multiple and trigger_once
+  - `capobj_group`, `tnttrigger`, `tntdelay` and `capobj_hud_sprite` added to func_breakable, as well as the following spawnflags:
+    - *Only Grenades* (8)
+    - *Allies Only* (16)
+    - *Axis Only* (32)
+    - *Object Cap Only* (64)
+    - *Bazooka or Grenades* (256)
+    - *Only Bazooka* (512)
+  - `m_iDamage` added to func_mortar_field
+  - *Not Interruptible* (16) spawnflag added to func_train
+* Added `studio()` parameter to env_model
+* Added new entities:
+  - info_intermission
+  - dod_preround
+  - particle_shooter
+  - info_landmark
+  - scripted_action
+  - scripted_sentence
+  - scripted_sequence
+  - trigger_transition
+  - monster_axis_grunt
+  - monster_allied_grunt
+  - monster_allied_barney
+
+> [!NOTE]
+> Some of the above changes are referred to in the [v1.0.0 (2.0.3.A.SP)](#v100)
+> comment field changelog, despite missing from that version's FGD.
+> I'm unsure why this was done, or if there's any relation.
+
+## v1.1.1 Patch
+
+Originally named version 4.1, this patch adds in game_player_equip entity.
+Yui added in this change that was published by [iNodeuNode on Reddit](https://www.reddit.com/r/DayOfDefeat/comments/ufrt0q/updated_dodfgd_to_v41_added_game_player_equip/).
