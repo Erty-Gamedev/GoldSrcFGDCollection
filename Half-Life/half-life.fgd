@@ -446,6 +446,11 @@
 	]
 ]
 
+@BaseClass = DoorHealth
+[
+	healthvalue(integer) : "Health to give on open"
+]
+
 @BaseClass base(Targetname, Target, RenderFields, Global, Angles, ZHLT) = BaseTank
 [
 	spawnflags(flags) =
@@ -1046,9 +1051,9 @@
 	speed(string) : "Conveyor Speed" : "100"
 ]
 
-@SolidClass base(Door, ZHLT) = func_door : "Basic door" []
+@SolidClass base(Door, ZHLT, DoorHealth) = func_door : "Basic door" []
 
-@SolidClass base(Door, ZHLT) = func_door_rotating : "Rotating door" 
+@SolidClass base(Door, ZHLT, DoorHealth) = func_door_rotating : "Rotating door" 
 [
 	spawnflags(flags) =
 	[
