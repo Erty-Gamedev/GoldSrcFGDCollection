@@ -173,9 +173,20 @@
 ]
 
 @BaseClass base(Targetname, Targetx, RenderFields, Appearflags, Angles) size(0 0 0, 32 32 32) color(80 0 200) = Ammo []
-@BaseClass base(Targetname, Targetx, RenderFields, Appearflags, Angles) size(-16 -16 0, 16 16 32) color(0 0 200) = Weapon []
+@BaseClass base(Targetname, Targetx, RenderFields, Appearflags, Angles, BodySkin) size(-16 -16 0, 16 16 32) color(0 0 200) = Weapon []
 @BaseClass base(Targetname, Target, RenderFields, Appearflags, Angles) size(-16 -16 0, 16 16 36) = ItemBase []
 @BaseClass base(Appearflags, Angles) size(-16 -16 -36, 16 16 36) color(0 255 0) studio("models/player.mdl") = PlayerClass []
+
+
+@BaseClass = Body
+[
+	body(integer) : "Body"
+]
+@BaseClass = Skin
+[
+	skin(integer) : "Skin"
+]
+@BaseClass base(Body, Skin) = BodySkin []
 
 @BaseClass base(Targetname, Target, RenderFields, Angles) color(0 200 200) = Monster 
 [
@@ -193,8 +204,6 @@
 		10: "See Player Unconditional"
 		11: "See Player, Not In Combat"
 	]
-	body(integer) : "Body"
-	skin(integer) : "Skin"
 	spawnflags(flags) = 
 	[
 		1 : "WaitTillSeen" 	: 0
@@ -689,10 +698,7 @@
 // Cyclers
 //
 
-@PointClass base(Targetname, ModelBase, Angles, RenderFields) size(-16 -16 0, 16 16 72) = cycler : "Monster Cycler" [
-	body(integer) : "Body"
-	skin(integer) : "Skin"
-]
+@PointClass base(Targetname, ModelBase, Angles, RenderFields, BodySkin) size(-16 -16 0, 16 16 72) = cycler : "Monster Cycler" []
 
 @PointClass base(Monster, ModelBase) size(-16 -16 -16, 16 16 16) = cycler_weapon : "Weapon Cycler" []
 
@@ -1625,8 +1631,8 @@
 // Monsters
 //
 
-@PointClass base(Monster) size(-16 -16 0, 16 16 72) studio("models/controller.mdl") = monster_alien_controller : "Controller"  []
-@PointClass base(Monster) size(-32 -32 0, 32 32 64) studio("models/agrunt.mdl") = monster_alien_grunt : "Alien Grunt" 
+@PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 72) studio("models/controller.mdl") = monster_alien_controller : "Controller"  []
+@PointClass base(Monster, BodySkin) size(-32 -32 0, 32 32 64) studio("models/agrunt.mdl") = monster_alien_grunt : "Alien Grunt" 
 [
 	netname(string) : "Squad Name"
 	spawnflags(flags) =
@@ -1643,7 +1649,7 @@
 		64 : "IgnorePlayer" : 0
 	]
 ]
-@PointClass base(Monster) size(-360 -360 -172, 360 360 8) studio("models/apache.mdl") = monster_apache : "Apache" 
+@PointClass base(Monster, BodySkin) size(-360 -360 -172, 360 360 8) studio("models/apache.mdl") = monster_apache : "Apache" 
 [
 	spawnflags(flags) = 
 	[
@@ -1651,10 +1657,10 @@
 		64 : "Start Inactive" : 0
 	]
 ]
-@PointClass base(Monster) size(-16 -16 0, 16 16 36) studio("models/baby_headcrab.mdl") = monster_babycrab : "Baby Headcrab" []
-@PointClass base(RenderFields) size(-16 -16 -36, 16 16 0) studio("models/barnacle.mdl") = monster_barnacle : "Barnacle Monster" []
-@PointClass base(Monster,TalkMonster) size(-16 -16 0, 16 16 72) studio("models/barney.mdl") = monster_barney : "Barney" []
-@PointClass base(RenderFields,Appearflags, Angles) size(-16 -16 0, 16 16 72) studio("models/barney.mdl") = monster_barney_dead : "Dead Barney" 
+@PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 36) studio("models/baby_headcrab.mdl") = monster_babycrab : "Baby Headcrab" []
+@PointClass base(RenderFields, BodySkin) size(-16 -16 -36, 16 16 0) studio("models/barnacle.mdl") = monster_barnacle : "Barnacle Monster" []
+@PointClass base(Monster, TalkMonster, Skin) size(-16 -16 0, 16 16 72) studio("models/barney.mdl") = monster_barney : "Barney" []
+@PointClass base(RenderFields, Appearflags, Angles, Skin) size(-16 -16 0, 16 16 72) studio("models/barney.mdl") = monster_barney_dead : "Dead Barney" 
 [
 	pose(choices) : "Pose" : 0 =
 	[
@@ -1663,21 +1669,21 @@
 		2 : "On stomach"
 	]
 ]
-@PointClass base(Monster) size(-95 -95 0, 95 95 190) studio("models/big_mom.mdl") = monster_bigmomma : "Big Mamma" 
+@PointClass base(Monster, BodySkin) size(-95 -95 0, 95 95 190) studio("models/big_mom.mdl") = monster_bigmomma : "Big Mamma" 
 [
 	netname(string) : "First node" : ""
 ]
-@PointClass base(Monster) size(-16 -16 0, 16 16 72) studio("models/floater.mdl") = monster_bloater : "Bloater" []
-@PointClass base(Monster) size(-32 -32 0, 32 32 64) studio("models/bullsquid.mdl") = monster_bullchicken : "BullChicken" []
-@PointClass base(Monster) size(-3 -3 0, 3 3 3) studio("models/roach.mdl") = monster_cockroach : "Cockroach" []
-@PointClass base(Monster) size(-16 -16 0, 16 16 16) studio("models/aflock.mdl") = monster_flyer_flock : "Flock of Flyers" 
+@PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 72) studio("models/floater.mdl") = monster_bloater : "Bloater" []
+@PointClass base(Monster, Body) size(-32 -32 0, 32 32 64) studio("models/bullsquid.mdl") = monster_bullchicken : "BullChicken" []
+@PointClass base(Monster, BodySkin) size(-3 -3 0, 3 3 3) studio("models/roach.mdl") = monster_cockroach : "Cockroach" []
+@PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 16) studio("models/aflock.mdl") = monster_flyer_flock : "Flock of Flyers" 
 [
 	iFlockSize(integer) : "Flock Size" : 8
 	flFlockRadius(integer) : "Flock Radius" : 128
 ]
-@PointClass base(Monster, ModelBase) size(-16 -16 0, 16 16 72) = monster_furniture : "Monster Furniture" []
-@PointClass base(Monster) size(-32 -32 0, 32 32 128) studio("models/garg.mdl") = monster_gargantua : "Gargantua" []
-@PointClass base(Monster, RenderFields, ModelBase) size(-16 -16 -36, 16 16 36) = monster_generic : "Generic Script Monster" 
+@PointClass base(Monster, ModelBase, BodySkin) size(-16 -16 0, 16 16 72) = monster_furniture : "Monster Furniture" []
+@PointClass base(Monster, BodySkin) size(-32 -32 0, 32 32 128) studio("models/garg.mdl") = monster_gargantua : "Gargantua" []
+@PointClass base(Monster, ModelBase, BodySkin) size(-16 -16 -36, 16 16 36) = monster_generic : "Generic Script Monster" 
 [
 	spawnflags(flags) = 
 	[
@@ -1685,11 +1691,11 @@
 	]
 	body(integer) : "Body" : 0
 ]
-@PointClass base(Monster) size(-16 -16 0, 16 16 72) studio("models/gman.mdl") = monster_gman : "G-Man" []
+@PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 72) studio("models/gman.mdl") = monster_gman : "G-Man" []
 @PointClass base(Monster) size(-16 -16 0, 16 16 72) studio("models/hgrunt.mdl") = monster_grunt_repel : "Human Grunt (Repel)" []
-@PointClass base(Weapon, Targetx, RenderFields) studio("models/w_grenade.mdl") = monster_handgrenade : "Live Handgrenade" []
-@PointClass base(Monster) size(-16 -16 0, 16 16 36) studio("models/headcrab.mdl") = monster_headcrab : "Head Crab" []
-@PointClass base(Appearflags,RenderFields, Angles) size(-16 -16 0, 16 16 72) studio("models/player.mdl") = monster_hevsuit_dead : "Dead HEV Suit" 
+@PointClass base(Weapon, Targetx) studio("models/w_grenade.mdl") = monster_handgrenade : "Live Handgrenade" []
+@PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 36) studio("models/headcrab.mdl") = monster_headcrab : "Head Crab" []
+@PointClass base(Appearflags, RenderFields, Angles, BodySkin) size(-16 -16 0, 16 16 72) studio("models/player.mdl") = monster_hevsuit_dead : "Dead HEV Suit" 
 [
 	pose(choices) : "Pose" : 0 =
 	[
@@ -1699,7 +1705,7 @@
 		3 : "On Table"
 	]
 ]
-@PointClass base(Appearflags,RenderFields, Angles) studio("models/hgrunt.mdl") size(-16 -16 0, 16 16 72) = monster_hgrunt_dead : "Dead Human Grunt" 
+@PointClass base(Appearflags, RenderFields, Angles, BodySkin) studio("models/hgrunt.mdl") size(-16 -16 0, 16 16 72) = monster_hgrunt_dead : "Dead Human Grunt" 
 [
 	pose(choices) : "Pose" : 0 =
 	[
@@ -1715,7 +1721,7 @@
 		3 : "Commander no Gun"
 	]
 ]
-@PointClass base(Monster) size(-16 -16 0, 16 16 36) studio("models/houndeye.mdl") = monster_houndeye : "Houndeye" 
+@PointClass base(Monster, Body) size(-16 -16 0, 16 16 36) studio("models/houndeye.mdl") = monster_houndeye : "Houndeye" 
 [
 	netname(string) : "Squad Name"
 	spawnflags(flags) =
@@ -1723,7 +1729,7 @@
 		32 : "SquadLeader" : 0
 	]
 ]
-@PointClass base(Monster) size(-16 -16 0, 16 16 72) studio("models/hassassin.mdl") = monster_human_assassin : "Human Assassin" []
+@PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 72) studio("models/hassassin.mdl") = monster_human_assassin : "Human Assassin" []
 @PointClass base(Monster) size(-16 -16 0, 16 16 72) studio("models/hgrunt.mdl") = monster_human_grunt : "Human Grunt (camo)" 
 [
 	spawnflags(flags) =
@@ -1740,9 +1746,9 @@
 		10 : "Shotgun + HG"
 	]
 ]
-@PointClass base(Monster) size(-32 -32 0, 32 32 64) studio("models/icky.mdl") = monster_ichthyosaur : "Ichthyosaur" []
-@PointClass base(Monster) size(-6 -6 0, 6 6 6) studio("models/leech.mdl") = monster_leech : "Leech" []
-@PointClass base(Monster) size(-16 -16 -32, 16 16 32) studio("models/miniturret.mdl") = monster_miniturret : "Mini Auto Turret"
+@PointClass base(Monster, Body) size(-32 -32 0, 32 32 64) studio("models/icky.mdl") = monster_ichthyosaur : "Ichthyosaur" []
+@PointClass base(Monster, BodySkin) size(-6 -6 0, 6 6 6) studio("models/leech.mdl") = monster_leech : "Leech" []
+@PointClass base(Monster, BodySkin) size(-16 -16 -32, 16 16 32) studio("models/miniturret.mdl") = monster_miniturret : "Mini Auto Turret"
 [
 	orientation(choices) : "Orientation" : 0 =
 	[
@@ -1755,16 +1761,16 @@
 		64 : "Start Inactive" : 0
 	]
 ]
-@PointClass base(Monster) size(-192 -192 0, 192 192 384) studio("models/nihilanth.mdl") = monster_nihilanth : "Nihilanth"  []
-@PointClass base(Monster) size(-480 -480 -112, 480 480 24) studio("models/osprey.mdl") = monster_osprey : "Osprey"
+@PointClass base(Monster, BodySkin) size(-192 -192 0, 192 192 384) studio("models/nihilanth.mdl") = monster_nihilanth : "Nihilanth"  []
+@PointClass base(Monster, BodySkin) size(-480 -480 -112, 480 480 24) studio("models/osprey.mdl") = monster_osprey : "Osprey"
 [
 	spawnflags(flags) = 
 	[
 		64 : "Start Inactive" : 0
 	]
 ]
-@PointClass base(Monster) size(-6 -6 0, 6 6 6) studio("models/bigrat.mdl") = monster_rat : "Rat (no ai?)" []
-@PointClass base(Weapon, Targetx, RenderFields) studio("models/w_satchel.mdl") = monster_satchel : "Live Satchel Charge" []
+@PointClass base(Monster, BodySkin) size(-6 -6 0, 6 6 6) studio("models/bigrat.mdl") = monster_rat : "Rat (no ai?)" []
+@PointClass base(Weapon, Targetx) studio("models/w_satchel.mdl") = monster_satchel : "Live Satchel Charge" []
 @PointClass base(Monster, TalkMonster) size(-16 -16 0, 16 16 72) studio("models/scientist.mdl") = monster_scientist : "Scared Scientist" 
 [
 	body(choices) : "Body" : -1 =
@@ -1776,7 +1782,7 @@
 		3 : "Slick"
 	]
 ]
-@PointClass base(Appearflags,RenderFields, Angles) size(-16 -16 0, 16 16 72) studio("models/scientist.mdl") = monster_scientist_dead : "Dead Scientist" 
+@PointClass base(Appearflags, RenderFields, Angles) size(-16 -16 0, 16 16 72) studio("models/scientist.mdl") = monster_scientist_dead : "Dead Scientist" 
 [
 	body(choices) : "Body" : -1 =
 	[
@@ -1808,7 +1814,7 @@
 		3 : "Slick"
 	]
 ]
-@PointClass base(Monster) size(-16 -16 0, 16 16 72) studio("models/sentry.mdl") = monster_sentry : "Sentry Turret Gun"
+@PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 72) studio("models/sentry.mdl") = monster_sentry : "Sentry Turret Gun"
 [
 	spawnflags(flags) = 
 	[
@@ -1816,8 +1822,8 @@
 		64 : "Start Inactive" : 0
 	]
 ]
-@PointClass base(Monster) size(-16 -16 0, 16 16 36) studio("models/w_squeak.mdl") = monster_snark : "Armed Snark" []
-@PointClass base(Monster) size(-32 -32 0, 32 32 64) studio("models/tentacle2.mdl") = monster_tentacle : "Tentacle Arm" 
+@PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 36) studio("models/w_squeak.mdl") = monster_snark : "Armed Snark" []
+@PointClass base(Monster, BodySkin) size(-32 -32 0, 32 32 64) studio("models/tentacle2.mdl") = monster_tentacle : "Tentacle Arm" 
 [
 	sweeparc(integer) : "Sweep Arc" : 130
 	sound(choices) : "Tap Sound" : -1 =
@@ -1828,14 +1834,14 @@
 		2 : "Water"
 	]
 ]
-@PointClass base(Monster) size(-8 -8 8, 8 8 8) studio("models/v_tripmine.mdl") body(3) sequence(7) = monster_tripmine : "Active Tripmine" 
+@PointClass base(Monster, BodySkin) size(-8 -8 8, 8 8 8) studio("models/v_tripmine.mdl") body(3) sequence(7) = monster_tripmine : "Active Tripmine" 
 [
 	spawnflags(flags) =
 	[
 		1 : "Instant On" : 1
 	]
 ]
-@PointClass base(Monster) size(-32 -32 -32, 32 32 32) studio("models/turret.mdl") = monster_turret : "Auto Turret"
+@PointClass base(Monster, BodySkin) size(-32 -32 -32, 32 32 32) studio("models/turret.mdl") = monster_turret : "Auto Turret"
 [
 	orientation(choices) : "Orientation" : 0 =
 	[
@@ -1848,7 +1854,7 @@
 		64 : "Start Inactive" : 0
 	]
 ]
-@PointClass base(Monster) size(-16 -16 0, 16 16 72) = monster_zombie : "Scientist Zombie" []
+@PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 72) = monster_zombie : "Scientist Zombie" []
 @PointClass base(Targetname, Angles) size(-16 -16 -16, 16 16 16) = monstermaker : "Monster Maker"
 [
 	target(string) : "Target On Release" 
