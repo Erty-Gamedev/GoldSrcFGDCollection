@@ -329,6 +329,18 @@
 	pattern(string) : "Custom Appearance"
 ]
 
+@BaseClass = LightSpot
+[
+	_cone(integer) : "Inner (bright) angle" : 30
+	_cone2(integer) : "Outer (fading) angle" : 45
+	pitch(integer) : "Pitch" : -90
+	_sky(choices) : "Is Sky" : 0 = 
+	[ 
+		0 : "No"
+		1 : "Yes"
+	]
+]
+
 @BaseClass = LockedSounds
 [
 	locked_sound(choices) : "Locked Sound" : 0 = 
@@ -1581,7 +1593,7 @@
 // Lights
 //
 
-@PointClass iconsprite("sprites/lightbulb.spr") base(Target, Targetname, Light, ZHLT_point) = light : "Invisible lightsource"
+@PointClass iconsprite("sprites/lightbulb.spr") base(Targetname, Target, Light, ZHLT_point) = light : "Invisible lightsource"
 [
 	spawnflags(flags) =
 	[
@@ -1589,34 +1601,12 @@
 	]
 ]
 
-@PointClass iconsprite("sprites/lightbulb.spr") base(Targetname, Target, Angles, ZHLT_point) = light_spot : "Spotlight" 
+@PointClass iconsprite("sprites/lightbulb.spr") base(Targetname, Target, Angles, LightSpot, ZHLT_point, Light) = light_spot : "Spotlight" 
 [
-	_cone(integer) : "Inner (bright) angle" : 30
-	_cone2(integer) : "Outer (fading) angle" : 45
-	pitch(integer) : "Pitch" : -90
-	_light(color255) : "Brightness" : "255 255 128 200"
-	_sky(choices) : "Is Sky" : 0 = 
-	[ 
-		0 : "No"
-		1 : "Yes"
-	]
-	spawnflags(flags) = [ 1 : "Initially dark" : 0 ]
-	style(choices) : "Appearance" : 0 =
+	spawnflags(flags) =
 	[
-		0 : "Normal"
-		10: "Fluorescent flicker"
-		2 : "Slow, strong pulse"
-		11: "Slow pulse, noblack"
-		5 : "Gentle pulse"
-		1 : "Flicker A"
-		6 : "Flicker B"
-		3 : "Candle A"
-		7 : "Candle B"
-		8 : "Candle C"
-		4 : "Fast strobe"
-		9 : "Slow strobe"
+		1 : "Initially dark" : 0
 	]
-	pattern(string) : "Custom Appearance"
 ]
 
 @PointClass base(Targetname, Angles, ZHLT_point) iconsprite("sprites/lightbulb.spr") = light_environment : "Environment" 
