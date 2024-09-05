@@ -9,16 +9,16 @@ known as v1.0.0 in this project.
 
 Changelog retrieved from comment field of this file:
 
-aug 28 2001 - 3.0.0.1
-- changed IS NOT LOOPED to NOT TOGGLED on ambient_generic (royalef)
-- gave light_environment a Name
-- added Angular Velocity to func_train
-- added cycler_wreckage (Waldo)
-- created ZHLT_point baseclass
-- added ZHLT_point base to light, light_environment, and light_spot
-- created ZHLT baseclass
-- added ZHLT base to all applicable brush entities
-- above list compiled by Unquenque
+> aug 28 2001 - 3.0.0.1
+> - changed IS NOT LOOPED to NOT TOGGLED on ambient_generic (royalef)
+> - gave light_environment a Name
+> - added Angular Velocity to func_train
+> - added cycler_wreckage (Waldo)
+> - created ZHLT_point baseclass
+> - added ZHLT_point base to light, light_environment, and light_spot
+> - created ZHLT baseclass
+> - added ZHLT base to all applicable brush entities
+> - above list compiled by Unquenque
 
 
 ## v1.1.0
