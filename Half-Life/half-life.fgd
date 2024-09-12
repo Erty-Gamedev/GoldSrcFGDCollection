@@ -1561,7 +1561,7 @@
 // Lights
 //
 
-@PointClass iconsprite("sprites/lightbulb.spr") base(Targetname, Target, Light, ZHLT_point) = light : "Invisible lightsource"
+@PointClass iconsprite("sprites/light.spr") base(Targetname, Target, Light, ZHLT_point) = light : "Invisible lightsource"
 [
 	spawnflags(flags) =
 	[
@@ -1569,7 +1569,7 @@
 	]
 ]
 
-@PointClass iconsprite("sprites/lightbulb.spr") base(Targetname, Target, Angles, LightSpot, ZHLT_point, Light) = light_spot : "Spotlight" 
+@PointClass iconsprite("sprites/light.spr") base(Targetname, Target, Angles, LightSpot, ZHLT_point, Light) = light_spot : "Spotlight" 
 [
 	spawnflags(flags) =
 	[
@@ -1577,7 +1577,7 @@
 	]
 ]
 
-@PointClass base(Targetname, Angles, ZHLT_point) iconsprite("sprites/lightbulb.spr") = light_environment : "Environment" 
+@PointClass base(Targetname, Angles, ZHLT_point) iconsprite("sprites/light.spr") = light_environment : "Environment" 
 [
 	pitch(integer) : "Pitch" : -90
 	_light(color255) : "Brightness" : "255 255 128 200"
@@ -2121,7 +2121,7 @@
 
 @SolidClass = trigger_gravity : "Trigger Gravity"
 [
-	gravity(integer) : "Gravity Multiplier (1.0 default)" : 1.0
+	gravity(string) : "Gravity Multiplier (1.0 default)" : "1.0"
 ]
 
 @SolidClass base(Targetname, Targetx, Master) = trigger_hurt : "Trigger player hurt" 
