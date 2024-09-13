@@ -1581,6 +1581,13 @@
 [
 	pitch(integer) : "Pitch" : -90
 	_light(color255) : "Brightness" : "255 255 128 200"
+	_spread(integer) : "Spread Angle" : 0 : "Spread angle for soft shadows."
+	_diffuse_light(color255) : "Diffuse Light" : "" : "Diffuse light color."
+	_fake(choices) : "Only Dynamic" : "" =
+	[
+		"" : "No"
+		1  : "Yes"
+	]
 ]
 
 @SolidClass base(Door, ZHLT) = momentary_door : "Momentary/Continuous door" 
