@@ -1659,6 +1659,7 @@
 [
 	spawnflags(flags) = 
 	[
+		4 : "Wait For Trigger" : 0
 		8 : "NoWreckage"	: 0
 		64 : "Start Inactive" : 0
 	]
