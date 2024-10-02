@@ -1524,7 +1524,7 @@
 @PointClass base(PlayerClass) = info_player_start : "Player 1 start" []
 
 @PointClass base(Targetname) size(-4 -4 -4, 4 4 4) color(200 100 50) = info_target : "Beam Target" []
-@PointClass size(-16 -16 -36, 16 16 36) base(Appearflags, Angles, Targetname) color(255 128 240) = info_teleport_destination : "Teleport destination" []
+@PointClass size(-16 -16 0, 16 16 72) base(Appearflags, Angles, Targetname) color(255 128 240) = info_teleport_destination : "Teleport destination" []
 
 
 //
