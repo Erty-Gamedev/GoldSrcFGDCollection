@@ -1278,6 +1278,7 @@
 	[
 		1 : "No Pitch (X-rot)" : 0
 		2 : "No User Control" : 0
+		4 : "Forwards Only" : 0
 		8 : "Passable" : 0
 	]
 	target(target_destination) : "First stop target"
