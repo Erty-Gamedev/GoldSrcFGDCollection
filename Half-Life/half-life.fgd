@@ -458,6 +458,24 @@
 	healthvalue(integer) : "Health to give on open"
 ]
 
+@BaseClass base(Targetname, Global, Angles, Appearflags, RenderFields) = MomentaryDoor
+[
+	lip(integer) : "Lip"
+	dmg(integer) : "Damage inflicted when blocked" : 0
+	movesnd(choices) : "Move Sound" : 0 = 
+	[
+		0: "No Sound"
+		1: "Servo (Sliding)"
+		2: "Pneumatic (Sliding)"
+		3: "Pneumatic (Rolling)"
+		4: "Vacuum"
+		5: "Power Hydraulic"
+		6: "Large Rollers"
+		7: "Track Door"
+		8: "Snappy Metal Door"
+	]
+]
+
 @BaseClass base(Targetname, Target, RenderFields, Global, Angles, ZHLT) = BaseTank
 [
 	spawnflags(flags) =
@@ -1633,7 +1651,7 @@
 	]
 ]
 
-@SolidClass base(Door, ZHLT) = momentary_door : "Momentary/Continuous door" 
+@SolidClass base(MomentaryDoor, ZHLT) = momentary_door : "Momentary/Continuous door" 
 [
 	spawnflags(flags) =
 	[
