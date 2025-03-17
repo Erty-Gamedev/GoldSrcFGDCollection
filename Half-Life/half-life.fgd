@@ -103,7 +103,15 @@
 ]
 @BaseClass = Angles
 [
-	angles(string) : "Pitch Yaw Roll (Y Z X)" : "0 0 0"
+	angles(choices) : "Pitch Yaw Roll (Y Z X)" : "0 0 0" =
+	[
+		"0 0 0" : "Default (East)"
+		"-90 0 0" : "Up"
+		"90 0 0" : "Down"
+		"0 90 0" : "North"
+		"0 180 0" : "West"
+		"0 -90 0" : "South"
+	]
 ]
 @BaseClass = Targetname 
 [ 
