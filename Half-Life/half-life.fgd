@@ -14,7 +14,28 @@
 @SolidClass = worldspawn : "World entity"
 [
 	message(string) : "Map Description / Title"
-	skyname(string) : "environment map (cl_skyname)"
+	skyname(choices) : "environment map (cl_skyname)" : "desert" =
+	[
+		"2desert" : "2desert"
+		"alien1" : "alien1"
+		"alien2" : "alien2"
+		"alien3" : "alien3"
+		"black" : "black"
+		"city" : "city"
+		"cliff" : "cliff"
+		"desert" : "desert"
+		"dusk" : "dusk"
+		"morning" : "morning"
+		"neb1" : "neb1"
+		"neb2" : "neb2"
+		"neb6" : "neb6"
+		"neb7" : "neb7"
+		"night" : "night"
+		"space" : "space"
+		"xeno8" : "xeno8"
+		"xeno9" : "xeno9"
+		"xeno10" : "xeno10"
+	]
 	sounds(integer) : "CD track to play" : 1
 	light(integer) : "Default light level"
 	WaveHeight(string) : "Default Wave Height"
