@@ -1,5 +1,10 @@
 # Half-Life FGD Changelog
 
+## v1.1.2
+* Added choices to angles (cardinal angles and up/down) for convenience
+* Added choices for default environment maps to worldspawn
+
+
 ## v1.1.1
 * Added `func_vehicle` (copy from counter-strike.fgd)
 
