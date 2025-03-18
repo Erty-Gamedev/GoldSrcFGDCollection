@@ -1727,13 +1727,72 @@
 // Monsters
 //
 
-@PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 72) studio("models/controller.mdl") = monster_alien_controller : "Controller"  []
+@PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 72) studio("models/controller.mdl") = monster_alien_controller : "Controller"
+[
+	sequence(choices) : "Preview Sequence" : 11 =
+	[
+		0 : "attack1"
+		1 : "attack2"
+		2 : "throw"
+		3 : "idle2"
+		4 : "block"
+		5 : "shoot"
+		6 : "flinch1"
+		7 : "flinch2"
+		8 : "fall"
+		9 : "forward"
+		10 : "backward"
+		11 : "up"
+		12 : "down"
+		13 : "right"
+		14 : "left"
+		15 : "float"
+		16 : "walk"
+		17 : "run"
+		18 : "die1"
+	]
+]
 @PointClass base(Monster, BodySkin) size(-32 -32 0, 32 32 64) studio("models/agrunt.mdl") = monster_alien_grunt : "Alien Grunt" 
 [
 	netname(string) : "Squad Name"
 	spawnflags(flags) =
 	[
 		32 : "SquadLeader" : 0
+	]
+	sequence(choices) : "Preview Sequence" : 0 =
+	[
+		0 : "idle1"
+		1 : "threat"
+		2 : "walk"
+		3 : "run"
+		4 : "turnl"
+		5 : "turnr"
+		6 : "smallflinch"
+		7 : "bigflinch"
+		8 : "mattack2"
+		9 : "mattack3"
+		10 : "victorysquat"
+		11 : "victoryeat"
+		12 : "victorysquat"
+		13 : "larmflinch"
+		14 : "llegflinch"
+		15 : "rarmflinch"
+		16 : "rlegflinch"
+		17 : "attack3"
+		18 : "attack3"
+		19 : "hornetattack"
+		20 : "quickshoot"
+		21 : "longshoot"
+		22 : "diehead"
+		23 : "diegut"
+		24 : "dieforward"
+		25 : "diesimple"
+		26 : "diebackward"
+		27 : "float"
+		28 : "scare"
+		29 : "bigopen"
+		30 : "smashrail"
+		31 : "landhard"
 	]
 ]
 @PointClass base(Monster) size(-16 -16 0, 16 16 72) studio("models/islave.mdl") = monster_alien_slave : "Vortigaunt" 
@@ -1743,6 +1802,39 @@
 	[
 		32 : "SquadLeader" : 0
 		64 : "IgnorePlayer" : 0
+	]
+	sequence(choices) : "Preview Sequence" : 2 =
+	[
+		0 : "idle1"
+		1 : "idle2"
+		2 : "idle3"
+		3 : "crouch"
+		4 : "walk1"
+		5 : "walk2"
+		6 : "run1"
+		7 : "right"
+		8 : "left"
+		9 : "jump"
+		10 : "stairsup"
+		11 : "attack1"
+		12 : "zapattack1"
+		13 : "flinch2"
+		14 : "laflinch"
+		15 : "raflinch"
+		16 : "llflinch"
+		17 : "rlflinch"
+		18 : "dieheadshot"
+		19 : "diesimple"
+		20 : "diebackward"
+		21 : "dieforward"
+		22 : "collar1"
+		23 : "collar2"
+		24 : "pushup"
+		25 : "grab"
+		26 : "updown"
+		27 : "downup"
+		28 : "jibber"
+		29 : "jabber"
 	]
 ]
 @PointClass base(Monster, BodySkin) size(-360 -360 -172, 360 360 8) studio("models/apache.mdl") = monster_apache : "Apache" 
@@ -1754,9 +1846,115 @@
 		64 : "Start Inactive" : 0
 	]
 ]
-@PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 36) studio("models/baby_headcrab.mdl") = monster_babycrab : "Baby Headcrab" []
-@PointClass base(RenderFields, BodySkin) size(-16 -16 -36, 16 16 0) studio("models/barnacle.mdl") = monster_barnacle : "Barnacle Monster" []
-@PointClass base(Monster, TalkMonster, Skin) size(-16 -16 0, 16 16 72) studio("models/barney.mdl") = monster_barney : "Barney" []
+@PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 36) studio("models/baby_headcrab.mdl") = monster_babycrab : "Baby Headcrab"
+[
+	sequence(choices) : "Preview Sequence" : 0 =
+	[
+		0 : "idle1"
+		1 : "idle2"
+		2 : "idle3"
+		3 : "walk"
+		4 : "run"
+		5 : "angry"
+		6 : "flinch"
+		7 : "dieback"
+		8 : "180_left"
+		9 : "180_right"
+		10 : "jump"
+		11 : "jump_variation1"
+		12 : "jump_variation2"
+	]
+]
+@PointClass base(RenderFields, BodySkin) size(-16 -16 -36, 16 16 0) studio("models/barnacle.mdl") = monster_barnacle : "Barnacle Monster"
+[
+	sequence(choices) : "Preview Sequence" : 2 =
+	[
+		0 : "idle1"
+		1 : "idle2"
+		2 : "idle3"
+		3 : "flinch_sm"
+		4 : "attack1"
+		5 : "chewcycle"
+		6 : "death"
+	]
+]
+@PointClass base(Monster, TalkMonster, Skin) size(-16 -16 0, 16 16 72) studio("models/barney.mdl") = monster_barney : "Barney"
+[
+	sequence(choices) : "Preview Sequence" : 0 =
+	[
+		0 : "idle1"
+		1 : "idle2"
+		2 : "idle3"
+		3 : "idle4"
+		4 : "walk"
+		5 : "run"
+		6 : "shootgun"
+		7 : "shootgun2"
+		8 : "draw"
+		9 : "disarm"
+		10 : "reload"
+		11 : "turnleft"
+		12 : "turnright"
+		13 : "laflinch"
+		14 : "raflinch"
+		15 : "llflinch"
+		16 : "rlflinch"
+		17 : "smlflinch"
+		18 : "cower_stand"
+		19 : "locked_door"
+		20 : "fall_loop"
+		21 : "barn_wave"
+		22 : "beat_grunt"
+		23 : "beat_gruntidle"
+		24 : "flashlight"
+		25 : "diesimple"
+		26 : "dieviolent"
+		27 : "diegutshot"
+		28 : "dieforward"
+		29 : "diebackward"
+		30 : "diecrump"
+		31 : "barnaclehit"
+		32 : "barnaclepull"
+		33 : "barnaclecrunch"
+		34 : "barnaclechew"
+		35 : "lying_on_back"
+		36 : "lying_on_side"
+		37 : "lying_on_stomach"
+		38 : "stuffed_in_vent"
+		39 : "standing_idle"
+		40 : "cprbarney"
+		41 : "cprbarneyrevive"
+		42 : "barney_dragvent"
+		43 : "dying_barney"
+		44 : "dying_barneyidle"
+		45 : "dying_friend"
+		46 : "dying_friendidle"
+		47 : "c1a3_bidle"
+		48 : "c1a3_ventb"
+		49 : "c1a3_emergeidle"
+		50 : "c1a3_emerge"
+		51 : "haulbarney"
+		52 : "intropush"
+		53 : "fence"
+		54 : "sit1"
+		55 : "almostidle"
+		56 : "almost"
+		57 : "laseridle"
+		58 : "laser_top"
+		59 : "laser_bottom"
+		60 : "barneyfallidle"
+		61 : "barneyfall"
+		62 : "c3a2_draw"
+		63 : "unlatch"
+		64 : "retina"
+		65 : "relaxstand"
+		66 : "assassinated"
+		67 : "trackswitch"
+		68 : "pepsiswing"
+		69 : "pepsipush"
+		70 : "buttonpush"
+	]
+]
 @PointClass base(RenderFields, Appearflags, Angles, Skin) size(-16 -16 0, 16 16 72) studio("models/barney.mdl") = monster_barney_dead : "Dead Barney" 
 [
 	pose(choices) : "Pose" : 0 =
@@ -1765,21 +1963,130 @@
 		1 : "On side"
 		2 : "On stomach"
 	]
+	sequence(choices) : "Preview Sequence" : 35 =
+	[
+		35 : "lying_on_back"
+		36 : "lying_on_side"
+		37 : "lying_on_stomach"
+	]
 ]
 @PointClass base(Monster, BodySkin) size(-95 -95 0, 95 95 190) studio("models/big_mom.mdl") = monster_bigmomma : "Big Mamma" 
 [
 	netname(string) : "First node" : ""
+	sequence(choices) : "Preview Sequence" : 0 =
+	[
+		0 : "idle1"
+		1 : "idle2"
+		2 : "walk"
+		3 : "run"
+		4 : "death"
+		5 : "claw"
+		6 : "claw"
+		7 : "claw"
+		8 : "spawn"
+		9 : "mortar"
+		10 : "flinch"
+		11 : "defend"
+		12 : "jump"
+		13 : "angry1"
+		14 : "angry2"
+		15 : "angry3"
+		16 : "breakwall"
+		17 : "fall1"
+		18 : "fall2"
+		19 : "falldeath"
+	]
 ]
-@PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 72) studio("models/floater.mdl") = monster_bloater : "Bloater" []
-@PointClass base(Monster, Body) size(-32 -32 0, 32 32 64) studio("models/bullsquid.mdl") = monster_bullchicken : "BullChicken" []
-@PointClass base(Monster, BodySkin) size(-3 -3 0, 3 3 3) studio("models/roach.mdl") = monster_cockroach : "Cockroach" []
+@PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 72) studio("models/floater.mdl") = monster_bloater : "Bloater"
+[
+	sequence(choices) : "Preview Sequence" : 0 =
+	[
+		0 : "idle1"
+	]
+]
+@PointClass base(Monster, Body) size(-32 -32 0, 32 32 64) studio("models/bullsquid.mdl") = monster_bullchicken : "BullChicken"
+[
+	sequence(choices) : "Preview Sequence" : 7 =
+	[
+		0 : "walk"
+		1 : "run"
+		2 : "suprisedhop"
+		3 : "flinchs"
+		4 : "flinchb"
+		5 : "turnleft"
+		6 : "turnright"
+		7 : "idle"
+		8 : "whip"
+		9 : "bite"
+		10 : "range"
+		11 : "look"
+		12 : "seecrab"
+		13 : "eat"
+		14 : "inspectdown"
+		15 : "sniff"
+		16 : "die"
+		17 : "die1"
+		18 : "bulljump"
+		19 : "draggruntidle"
+		20 : "draggrunt"
+		21 : "scare"
+		22 : "squidfallidle"
+		23 : "squidfall"
+	]
+]
+@PointClass base(Monster, BodySkin) size(-3 -3 0, 3 3 3) studio("models/roach.mdl") = monster_cockroach : "Cockroach"
+[
+	sequence(choices) : "Preview Sequence" : 0 =
+	[
+		0 : "run"
+		1 : "run"
+	]
+]
 @PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 16) studio("models/aflock.mdl") = monster_flyer_flock : "Flock of Flyers" 
 [
 	iFlockSize(integer) : "Flock Size" : 8
 	flFlockRadius(integer) : "Flock Radius" : 128
+	sequence(choices) : "Preview Sequence" : 0 =
+	[
+		0 : "idle"
+		1 : "fly"
+		2 : "fly2"
+		3 : "bankL"
+		4 : "bankR"
+		5 : "hit"
+		6 : "wounded"
+		7 : "crash"
+	]
 ]
 @PointClass base(Monster, ModelBase, BodySkin) size(-16 -16 0, 16 16 72) = monster_furniture : "Monster Furniture" []
-@PointClass base(Monster, BodySkin) size(-32 -32 0, 32 32 128) studio("models/garg.mdl") = monster_gargantua : "Gargantua" []
+@PointClass base(Monster, BodySkin) size(-32 -32 0, 32 32 128) studio("models/garg.mdl") = monster_gargantua : "Gargantua"
+[
+	sequence(choices) : "Preview Sequence" : 0 =
+	[
+		0 : "idle3"
+		1 : "idle2"
+		2 : "idle1"
+		3 : "idle4"
+		4 : "walk"
+		5 : "run"
+		6 : "shootflames1"
+		7 : "shootflames2"
+		8 : "Attack"
+		9 : "stomp"
+		10 : "180left"
+		11 : "180right"
+		12 : "Flinchlight"
+		13 : "Flinchheavy"
+		14 : "die"
+		15 : "bitehead"
+		16 : "throwbody"
+		17 : "smash"
+		18 : "rollcar"
+		19 : "kickcar"
+		20 : "pushcar"
+		21 : "bust"
+	]
+]
 @PointClass base(Monster, ModelBase, BodySkin) size(-16 -16 -36, 16 16 36) = monster_generic : "Generic Script Monster" 
 [
 	spawnflags(flags) = 
@@ -1788,10 +2095,65 @@
 	]
 	body(integer) : "Body" : 0
 ]
-@PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 72) studio("models/gman.mdl") = monster_gman : "G-Man" []
-@PointClass base(Monster) size(-16 -16 0, 16 16 72) studio("models/hgrunt.mdl") = monster_grunt_repel : "Human Grunt (Repel)" []
+@PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 72) studio("models/gman.mdl") = monster_gman : "G-Man"
+[
+	sequence(choices) : "Preview Sequence" : 0 =
+	[
+		0 : "idle01"
+		1 : "idlebrush"
+		2 : "idlelook"
+		3 : "idle02"
+		4 : "open"
+		5 : "stand"
+		6 : "walk"
+		7 : "yes"
+		8 : "no"
+		9 : "bigno"
+		10 : "bigyes"
+		11 : "listen"
+		12 : "lookdown"
+		13 : "lookdown2"
+	]
+]
+@PointClass base(Monster) size(-16 -16 0, 16 16 72) studio("models/hgrunt.mdl") = monster_grunt_repel : "Human Grunt (Repel)"
+[
+	sequence(choices) : "Preview Sequence" : 48 =
+	[
+		47 : "repel_jump"
+		48 : "repel_repel"
+		49 : "repel_shoot"
+		50 : "repel_land"
+		51 : "repel_die"
+	]
+]
 @PointClass base(Weapon, Targetx) studio("models/w_grenade.mdl") = monster_handgrenade : "Live Handgrenade" []
-@PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 36) studio("models/headcrab.mdl") = monster_headcrab : "Head Crab" []
+@PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 36) studio("models/headcrab.mdl") = monster_headcrab : "Head Crab"
+[
+	sequence(choices) : "Preview Sequence" : 0 =
+	[
+		0 : "idle1"
+		1 : "idle2"
+		2 : "idle3"
+		3 : "walk"
+		4 : "run"
+		5 : "angry"
+		6 : "flinch"
+		7 : "dieback"
+		8 : "180_left"
+		9 : "180_right"
+		10 : "jump"
+		11 : "jump_variation1"
+		12 : "jump_variation2"
+		13 : "yaw_adjustment"
+		14 : "headcrabbed#1"
+		15 : "headcrabbed#2"
+		16 : "headidle"
+		17 : "crashidle"
+		18 : "crash"
+		19 : "hstruggleidle"
+		20 : "hstruggle"
+	]
+]
 @PointClass base(Appearflags, RenderFields, Angles, BodySkin) size(-16 -16 0, 16 16 72) studio("models/player.mdl") = monster_hevsuit_dead : "Dead HEV Suit" 
 [
 	pose(choices) : "Pose" : 0 =
@@ -1800,6 +2162,18 @@
 		1 : "Seated"
 		2 : "On stomach"
 		3 : "On Table"
+	]
+	body(choices) : "Body" : 1 =
+	[
+		0 : "Gordon Freeman"
+		1 : "HEV suit scientist"
+	]
+	sequence(choices) : "Preview Sequence" : 73 =
+	[
+		73 : "deadback"
+		74 : "deadsitting"
+		75 : "deadstomach"
+		76 : "deadtable"
 	]
 ]
 @PointClass base(Appearflags, RenderFields, Angles, BodySkin) studio("models/hgrunt.mdl") size(-16 -16 0, 16 16 72) = monster_hgrunt_dead : "Dead Human Grunt" 
@@ -1817,6 +2191,12 @@
 		2 : "Grunt no Gun"
 		3 : "Commander no Gun"
 	]
+	sequence(choices) : "Preview Sequence" : 44 =
+	[
+		44 : "deadstomach"
+		45 : "deadside"
+		46 : "deadsitting"
+	]
 ]
 @PointClass base(Monster, Body) size(-16 -16 0, 16 16 36) studio("models/houndeye.mdl") = monster_houndeye : "Houndeye" 
 [
@@ -1825,8 +2205,64 @@
 	[
 		32 : "SquadLeader" : 0
 	]
+	sequence(choices) : "Preview Sequence" : 1 =
+	[
+		0 : "idle1"
+		1 : "idle2"
+		2 : "idle3"
+		3 : "run"
+		4 : "run"
+		5 : "run"
+		6 : "die"
+		7 : "die1"
+		8 : "die2"
+		9 : "die3"
+		10 : "attack"
+		11 : "flinch_small"
+		12 : "flinch_small2"
+		13 : "die_crumple"
+		14 : "walk_limp"
+		15 : "walk2"
+		16 : "leaderlook"
+		17 : "sleep"
+		18 : "gotosleep"
+		19 : "sleeptostand"
+		20 : "madidle"
+		21 : "madidle2"
+		22 : "madidle3"
+		23 : "inspect"
+		24 : "eat"
+		25 : "180l"
+		26 : "180r"
+		27 : "jumpback"
+		28 : "wakefast"
+		29 : "whimper"
+		30 : "jumpwindow"
+	]
 ]
-@PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 72) studio("models/hassassin.mdl") = monster_human_assassin : "Human Assassin" []
+@PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 72) studio("models/hassassin.mdl") = monster_human_assassin : "Human Assassin"
+[
+	sequence(choices) : "Preview Sequence" : 0 =
+	[
+		0 : "idle1"
+		1 : "idle3"
+		2 : "idle2"
+		3 : "run"
+		4 : "walk"
+		5 : "shoot"
+		6 : "grenadethrow"
+		7 : "kick"
+		8 : "kickshort"
+		9 : "death_during_run"
+		10 : "die_backwards"
+		11 : "die_simple"
+		12 : "jump"
+		13 : "fly_up"
+		14 : "fly_down"
+		15 : "fly_attack"
+		16 : "landfromjump"
+	]
+]
 @PointClass base(Monster) size(-16 -16 0, 16 16 72) studio("models/hgrunt.mdl") = monster_human_grunt : "Human Grunt (camo)" 
 [
 	spawnflags(flags) =
@@ -1842,9 +2278,128 @@
 		8 : "Shotgun"
 		10 : "Shotgun + HG"
 	]
+	sequence(choices) : "Preview Sequence" : 11 =
+	[
+		0 : "walk1"
+		1 : "run"
+		2 : "victorydance"
+		3 : "cower"
+		4 : "smflinch"
+		5 : "leftlegsmflinch"
+		6 : "rightlegsmflinch"
+		7 : "rightarmflinch"
+		8 : "leftarmflinch"
+		9 : "launchgrenade"
+		10 : "throwgrenade"
+		11 : "idle1"
+		12 : "idle2"
+		13 : "combatidle"
+		14 : "frontkick"
+		15 : "crouching_idle"
+		16 : "crouching_wait"
+		17 : "crouching_mp5"
+		18 : "standing_mp5"
+		19 : "reload_mp5"
+		20 : "crouching_shotgun"
+		21 : "standing_shotgun"
+		22 : "reload_shotgun"
+		23 : "advance_signal"
+		24 : "flank_signal"
+		25 : "retreat_signal"
+		26 : "drop_grenade"
+		27 : "limpingwalk"
+		28 : "limpingrun"
+		29 : "180L"
+		30 : "180R"
+		31 : "strafeleft"
+		32 : "straferight"
+		33 : "dieback1"
+		34 : "dieforward"
+		35 : "diesimple"
+		36 : "diebackwards"
+		37 : "dieheadshot"
+		38 : "diegutshot"
+		39 : "barnacled1"
+		40 : "barnacled2"
+		41 : "barnacled3"
+		42 : "barnacled4"
+		43 : "dead_on_stomach"
+		44 : "deadstomach"
+		45 : "deadside"
+		46 : "deadsitting"
+		47 : "repel_jump"
+		48 : "repel_repel"
+		49 : "repel_shoot"
+		50 : "repel_land"
+		51 : "repel_die"
+		52 : "dragholeidle"
+		53 : "draghole"
+		54 : "bustwall"
+		55 : "hoprail"
+		56 : "converse1"
+		57 : "converse2"
+		58 : "startleleft"
+		59 : "startleright"
+		60 : "divecover"
+		61 : "defuse"
+		62 : "corner1"
+		63 : "corner2"
+		64 : "stonetoss"
+		65 : "cliffdie"
+		66 : "diveaside_idle"
+		67 : "diveaside"
+		68 : "kneeldive_idle"
+		69 : "kneeldive"
+		70 : "WM_button"
+		71 : "WM_moatjump"
+		72 : "bustwindow"
+		73 : "dragleft"
+		74 : "dragright"
+		75 : "trackwave"
+		76 : "trackdive"
+		77 : "flyback"
+		78 : "impaled"
+		79 : "jumptracks"
+		80 : "pipetoss"
+		81 : "plunger"
+	]
 ]
-@PointClass base(Monster, Body) size(-32 -32 0, 32 32 64) studio("models/icky.mdl") = monster_ichthyosaur : "Ichthyosaur" []
-@PointClass base(Monster, BodySkin) size(-6 -6 0, 6 6 6) studio("models/leech.mdl") = monster_leech : "Leech" []
+@PointClass base(Monster, Body) size(-32 -32 0, 32 32 64) studio("models/icky.mdl") = monster_ichthyosaur : "Ichthyosaur"
+[
+	sequence(choices) : "Preview Sequence" : 0 =
+	[
+		0 : "idle"
+		1 : "swim"
+		2 : "thrust"
+		3 : "die1"
+		4 : "die2"
+		5 : "smflinch"
+		6 : "bgflinch"
+		7 : "bellyup"
+		8 : "bite_r"
+		9 : "bite_l"
+		10 : "srattack1"
+		11 : "rturn"
+		12 : "lturn"
+		13 : "180turn"
+		14 : "hitcage"
+		15 : "new_ickyjump"
+	]
+]
+@PointClass base(Monster, BodySkin) size(-6 -6 0, 6 6 6) studio("models/leech.mdl") = monster_leech : "Leech"
+[
+	sequence(choices) : "Preview Sequence" : 0 =
+	[
+		0 : "swim"
+		1 : "swim2"
+		2 : "attack"
+		3 : "hover"
+		4 : "leftturn"
+		5 : "rightturn"
+		6 : "death"
+		7 : "death_end"
+	]
+]
 @PointClass base(Monster, BodySkin) size(-16 -16 -32, 16 16 32) studio("models/miniturret.mdl") = monster_miniturret : "Mini Auto Turret"
 [
 	orientation(choices) : "Orientation" : 0 =
@@ -1857,8 +2412,43 @@
 		32 : "Autostart" : 0
 		64 : "Start Inactive" : 0
 	]
+	sequence(choices) : "Preview Sequence" : 0 =
+	[
+		0 : "idle_off"
+		1 : "fire"
+		2 : "spin"
+		3 : "deploy"
+		4 : "retire"
+		5 : "die"
+	]
 ]
-@PointClass base(Monster, BodySkin) size(-192 -192 0, 192 192 384) studio("models/nihilanth.mdl") = monster_nihilanth : "Nihilanth"  []
+@PointClass base(Monster, BodySkin) size(-192 -192 0, 192 192 384) studio("models/nihilanth.mdl") = monster_nihilanth : "Nihilanth"
+[
+	sequence(choices) : "Preview Sequence" : 0 =
+	[
+		0 : "float"
+		1 : "attack1"
+		2 : "attack2"
+		3 : "throw"
+		4 : "block"
+		5 : "recharge"
+		6 : "float_open"
+		7 : "attack1_open"
+		8 : "attack2_open"
+		9 : "flinch1"
+		10 : "flinch2"
+		11 : "fall"
+		12 : "die1"
+		13 : "walk_f"
+		14 : "walk_b"
+		15 : "walk_u"
+		16 : "walk_d"
+		17 : "walk_r"
+		18 : "walk_l"
+		19 : "walk"
+		20 : "shoot"
+	]
+]
 @PointClass base(Monster, BodySkin) size(-480 -480 -112, 480 480 24) studio("models/osprey.mdl") = monster_osprey : "Osprey"
 [
 	spawnflags(flags) = 
@@ -1866,7 +2456,20 @@
 		64 : "Start Inactive" : 0
 	]
 ]
-@PointClass base(Monster, BodySkin) size(-6 -6 0, 6 6 6) studio("models/bigrat.mdl") = monster_rat : "Rat (no ai?)" []
+@PointClass base(Monster, BodySkin) size(-6 -6 0, 6 6 6) studio("models/bigrat.mdl") = monster_rat : "Rat (no ai?)"
+[
+	sequence(choices) : "Preview Sequence" : 0 =
+	[
+		0 : "idle4"
+		1 : "idle5"
+		2 : "idle6"
+		3 : "idle7"
+		4 : "walk2"
+		5 : "jump"
+		6 : "eat"
+		7 : "die1"
+	]
+]
 @PointClass base(Weapon, Targetx) studio("models/w_satchel.mdl") = monster_satchel : "Live Satchel Charge" []
 @PointClass base(Monster, TalkMonster) size(-16 -16 0, 16 16 72) studio("models/scientist.mdl") = monster_scientist : "Scared Scientist" 
 [
@@ -1910,6 +2513,137 @@
 		2 : "Luther"
 		3 : "Slick"
 	]
+	sequence(choices) : "Preview Sequence" : 13 =
+	[
+		0 : "walk"
+		1 : "walk_scared"
+		2 : "run"
+		3 : "run1"
+		4 : "run2"
+		5 : "180_Left"
+		6 : "180_Right"
+		7 : "flinch"
+		8 : "flinch1"
+		9 : "laflinch"
+		10 : "raflinch"
+		11 : "llflinch"
+		12 : "rlflinch"
+		13 : "idle1"
+		14 : "idle3"
+		15 : "idle4"
+		16 : "idle5"
+		17 : "idle6"
+		18 : "idle7"
+		19 : "crouchstand"
+		20 : "crouch_idle"
+		21 : "crouch_idle2"
+		22 : "crouch_idle3"
+		23 : "crouch_idle3"
+		24 : "panic"
+		25 : "fear1"
+		26 : "fear2"
+		27 : "eye_wipe"
+		28 : "pull_needle"
+		29 : "return_needle"
+		30 : "give_shot"
+		31 : "diesimple"
+		32 : "dieforward"
+		33 : "dieforward1"
+		34 : "diebackward"
+		35 : "headshot"
+		36 : "gutshot"
+		37 : "lying_on_back"
+		38 : "lying_on_stomach"
+		39 : "dead_sitting"
+		40 : "dead_table1"
+		41 : "dead_table2"
+		42 : "dead_table3"
+		43 : "barnacled1"
+		44 : "barnacled2"
+		45 : "barnacled3"
+		46 : "barnacled4"
+		47 : "console"
+		48 : "checktie"
+		49 : "dryhands"
+		50 : "tieshoe"
+		51 : "whiteboard"
+		52 : "studycart"
+		53 : "lean"
+		54 : "pondering"
+		55 : "pondering2"
+		56 : "pondering3"
+		57 : "buysoda"
+		58 : "pause"
+		59 : "yes"
+		60 : "no"
+		61 : "push_button"
+		62 : "converse1"
+		63 : "converse2"
+		64 : "retina"
+		65 : "talkleft"
+		66 : "talkright"
+		67 : "deskidle"
+		68 : "coffee"
+		69 : "franticbutton"
+		70 : "startle"
+		71 : "sitlookleft"
+		72 : "sitlookright"
+		73 : "sitscared"
+		74 : "sitting2"
+		75 : "sitting3"
+		76 : "cprscientist"
+		77 : "cprscientistrevive"
+		78 : "cowering_in_corner"
+		79 : "sstruggleidle"
+		80 : "sstruggle"
+		81 : "headcrabbed"
+		82 : "c1a0_catwalkidle"
+		83 : "c1a0_catwalk"
+		84 : "ceiling_dangle"
+		85 : "ventpull1"
+		86 : "ventpull2"
+		87 : "ventpullidle1"
+		88 : "ventpullidle2"
+		89 : "sitidle"
+		90 : "sitstand"
+		91 : "keypad"
+		92 : "panic1"
+		93 : "lookwindow"
+		94 : "wave"
+		95 : "pulldoor"
+		96 : "beatdoor"
+		97 : "fallingloop"
+		98 : "crawlwindow"
+		99 : "divewindow"
+		100 : "locked_door"
+		101 : "push_button2"
+		102 : "unlock_door"
+		103 : "quicklook"
+		104 : "handrailidle"
+		105 : "handrail"
+		106 : "hanging_idle"
+		107 : "fall"
+		108 : "scientist_get_pulled"
+		109 : "hanging_idle2"
+		110 : "fall_elevator"
+		111 : "scientist_idlewall"
+		112 : "ickyjump_sci"
+		113 : "haulscientist"
+		114 : "c1a4_wounded_idle"
+		115 : "c1a4_dying_speech"
+		116 : "tentacle_grab"
+		117 : "helicack"
+		118 : "windive"
+		119 : "scicrashidle"
+		120 : "scicrash"
+		121 : "onguard"
+		122 : "seeya"
+		123 : "rocketcrawl"
+		124 : "portal"
+		125 : "gluonshow"
+		126 : "crouch"
+		127 : "kneel"
+	]
 ]
 @PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 72) studio("models/sentry.mdl") = monster_sentry : "Sentry Turret Gun"
 [
@@ -1929,6 +2663,62 @@
 		0 : "Silo"
 		1 : "Dirt"
 		2 : "Water"
+	]
+	sequence(choices) : "Preview Sequence" : 3 =
+	[
+		0 : "Pit_Idle"
+		1 : "rise_to_Temp1"
+		2 : "Temp1_to_Floor"
+		3 : "Floor_Idle"
+		4 : "Floor_Fidget_Pissed"
+		5 : "Floor_Fidget_SmallRise"
+		6 : "Floor_Fidget_Wave"
+		7 : "Floor_Strike"
+		8 : "Floor_Tap"
+		9 : "Floor_Rotate"
+		10 : "Floor_Rear"
+		11 : "Floor_Rear_Idle"
+		12 : "Floor_to_Lev1"
+		13 : "Lev1_Idle"
+		14 : "Lev1_Fidget_Claw"
+		15 : "Lev1_Fidget_Shake"
+		16 : "Lev1_Fidget_Snap"
+		17 : "Lev1_Strike"
+		18 : "Lev1_Tap"
+		19 : "Lev1_Rotate"
+		20 : "Lev1_Rear"
+		21 : "Lev1_Rear_Idle"
+		22 : "Lev1_to_Lev2"
+		23 : "Lev2_Idle"
+		24 : "Lev2_Fidget_Shake"
+		25 : "Lev2_Fidget_Swing"
+		26 : "Lev2_Fidget_Tut"
+		27 : "Lev2_Strike"
+		28 : "Lev2_Tap"
+		29 : "Lev2_Rotate"
+		30 : "Lev2_Rear"
+		31 : "Lev2_Rear_Idle"
+		32 : "Lev2_to_Lev3"
+		33 : "Lev3_Idle"
+		34 : "Lev3_Fidget_Shake"
+		35 : "Lev3_Fidget_Side"
+		36 : "Lev3_Fidget_Swipe"
+		37 : "Lev3_Strike"
+		38 : "Lev3_Tap"
+		39 : "Lev3_Rotate"
+		40 : "Lev3_Rear"
+		41 : "Lev3_Rear_Idle"
+		42 : "Lev1_Door_reach"
+		43 : "Lev3_to_Engine"
+		44 : "Engine_Idle"
+		45 : "Engine_Sway"
+		46 : "Engine_Swat"
+		47 : "Engine_Bob"
+		48 : "Engine_death1"
+		49 : "Engine_death2"
+		50 : "Engine_death3"
+		51 : "tentacle_grab_idle"
+		52 : "tentacle_grab"
 	]
 ]
 @PointClass base(Monster, BodySkin) size(-8 -8 8, 8 8 8) studio("models/v_tripmine.mdl") body(3) sequence(7) = monster_tripmine : "Active Tripmine" 
@@ -1951,7 +2741,56 @@
 		64 : "Start Inactive" : 0
 	]
 ]
-@PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 72) = monster_zombie : "Scientist Zombie" []
+@PointClass base(Monster, BodySkin) size(-16 -16 0, 16 16 72) = monster_zombie : "Scientist Zombie"
+[
+	sequence(choices) : "Preview Sequence" : 0 =
+	[
+		0 : "idle1"
+		1 : "turnleft"
+		2 : "turnright"
+		3 : "flinchsmall"
+		4 : "flinch"
+		5 : "bigflinch"
+		6 : "getup"
+		7 : "falling"
+		8 : "attack1"
+		9 : "attack2"
+		10 : "walk"
+		11 : "laflinch"
+		12 : "raflinch"
+		13 : "llflinch"
+		14 : "rlflinch"
+		15 : "dieheadshot"
+		16 : "dieheadshot2"
+		17 : "diesimple"
+		18 : "diebackward"
+		19 : "dieforward"
+		20 : "pause"
+		21 : "busting_through_wall"
+		22 : "kick_punch_wall"
+		23 : "bust_window"
+		24 : "soda"
+		25 : "slideidle"
+		26 : "slidewall"
+		27 : "ventclimbidle"
+		28 : "ventclimb"
+		29 : "deadidle"
+		30 : "deadwall"
+		31 : "freakdie"
+		32 : "freak"
+		33 : "eatbodytable"
+		34 : "eatbody"
+		35 : "eatbodystand"
+		36 : "ripdoor"
+		37 : "zombie_pull_scientist"
+		38 : "zombie_eating"
+		39 : "eat_to_stand"
+		40 : "vent_zidle"
+		41 : "vent_c1a3"
+		42 : "haulzombie"
+		43 : "c2a3_snack_getup"
+	]
+]
 @PointClass base(Targetname, Angles) size(-16 -16 -16, 16 16 16) = monstermaker : "Monster Maker"
 [
 	target(string) : "Target On Release" 
