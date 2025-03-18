@@ -1,5 +1,9 @@
 # Half-Life FGD Changelog
 
+## v1.1.3
+* Added preview sequence property to monsters (thanks Mad Carrot)
+
+
 ## v1.1.2
 * Added choices to angles (cardinal angles and up/down) for convenience
 * Added choices for default environment maps to worldspawn
