@@ -938,6 +938,33 @@
 	]
 ]
 
+// Submitted by Mad Carrot, changed by Erty to use base classes and added choices to classname property
+@PointClass base(Targetname, RenderFxChoices, Angles, BodySkin) size(-16 -16 0, 16 16 32) color(255 127 0) studio() = env_model : "Decorative model"
+[
+	model(studio) : "Model"
+	framerate(string) : "Framerate" : "1.0"
+	scale(string) : "Scale" : "1.0"
+	spawnflags(flags) =
+	[
+		1 : "Start on" : 1
+		2 : "Play once" : 0
+	]
+
+	// Model-specific (Only sequence numbers are supported, not names):
+	sequence(integer) : "Animation sequence number"
+
+	// This trick will cause some compile tools (VHLT) to replace the 'env_model' classname with 'env_sprite'.
+	// NOTE: This does not work properly with all compile tools, so be sure to test this!
+	classname(choices) : " " : "env_sprite" =
+	[
+		"cycler" : "cycler"
+		"cycler_sprite" : "cycler_sprite"
+		"env_sprite" : "env_sprite"
+		"monster_furniture" : "monster_furniture"
+		"monster_generic" : "monster_generic"
+	]
+]
+
 @PointClass base(Targetname, Target, RenderFields) size(-16 -16 -16, 16 16 16) color(100 100 0) = env_render : "Render Controls"
 [
 	spawnflags(flags) =

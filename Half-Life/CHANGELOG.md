@@ -2,6 +2,7 @@
 
 ## v1.1.3
 * Added preview sequence property to monsters (thanks Mad Carrot)
+* Added env_model hack (thanks Mad Carrot)
 
 
 ## v1.1.2
