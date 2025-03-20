@@ -8,6 +8,10 @@
 // http://www.valve-erc.com/
 //
 
+// mar 20 2025 - 3.0.0.1a
+//	- Add editor models (SiPlus, Veinhelm)
+//	- Add logical default skybox, so that it doesn't default to the desert skybox (SiPlus)
+//	- Add default value to trigger_jump (SiPlus) and make it accurate to game code (SirYodaJedi)
 //
 // aug 28 2001 - 3.0.0.1
 //	- changed IS NOT LOOPED to NOT TOGGLED on ambient_generic (royalef)
