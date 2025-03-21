@@ -3,11 +3,15 @@
 // version 3.0.0.1
 // for Worldcraft 3.3 and above, and the Ricochet mod
 //
-// updated by Chris Bokitch
+// updated by Chris Bokitch, SiPlus, Veinhelm, and SirYodaJedi
 // autolycus@valvesoftware.com
 // http://www.valve-erc.com/
 //
 
+// mar 20 2025 - 3.0.0.1a
+//	- Add editor models (SiPlus, Veinhelm)
+//	- Add logical default skybox, so that it doesn't default to the desert skybox (SiPlus)
+//	- Add default value to trigger_jump (SiPlus) and make it accurate to game code (SirYodaJedi)
 //
 // aug 28 2001 - 3.0.0.1
 //	- changed IS NOT LOOPED to NOT TOGGLED on ambient_generic (royalef)
@@ -27,7 +31,7 @@
 @SolidClass = worldspawn : "World entity"
 [
 	message(string) : "Map Description / Title"
-	skyname(string) : "environment map (cl_skyname)"
+	skyname(string) : "environment map (cl_skyname)" : "disc"
 	sounds(integer) : "CD track to play" : 1
 	WaveHeight(string) : "Default Wave Height"
 	MaxRange(string) : "Max viewable distance" : "4096"
@@ -1524,7 +1528,7 @@
 
 @PointClass base(Targetname) = info_null : "info_null (spotlight target)" []
 
-@PointClass base(PlayerClass) = info_player_deathmatch : "Player deathmatch start" 
+@PointClass base(PlayerClass) studio("models/player/male/male.mdl") = info_player_deathmatch : "Player deathmatch start" 
 [
 	target(target_destination) : "Target"
 	master(string) : "Master"
@@ -1536,7 +1540,7 @@
 ]
 
 // ricochet
-@PointClass size(-16 -16 -16, 16 16 16) color(0 255 0) = info_player_spectator : "Spectator Location"
+@PointClass size(-16 -16 -16, 16 16 16) color(0 255 0) studio("models/head.mdl") = info_player_spectator : "Spectator Location"
 [
 	pitch(integer) : "Pitch (90: up, -90: down)"
 	angles(string) : "Pitch Yaw Roll"
@@ -1547,7 +1551,7 @@
 
 @PointClass base(Targetname) size(-4 -4 -4, 4 4 4) color(255 0 0) = info_ricochet : "Ricochet" []
 @PointClass base(Targetname) size(-4 -4 -4, 4 4 4) color(200 100 50) = info_target : "Beam Target" []
-@PointClass size(-8 -8 0, 8 8 16) base(PlayerClass, Targetname) = info_teleport_destination : "Teleport destination" []
+@PointClass size(-8 -8 0, 8 8 16) base(PlayerClass, Targetname) studio("models/head.mdl") = info_teleport_destination : "Teleport destination" []
 
 //
 // 
@@ -1560,7 +1564,7 @@
 @PointClass size(-16 -16 0, 16 16 36) base(Item) = item_longjump : "Longjump Module" []
 
 // ricochet
-@PointClass size(-16 -16 0, 16 16 32) base(Item) = item_powerup : "Ricochet Powerup" []
+@PointClass size(-16 -16 0, 16 16 32) base(Item) studio("models/pow_visual.mdl") = item_powerup : "Ricochet Powerup" []
 
 
 @PointClass size(-16 -16 0, 16 16 36) base(Item) = item_security : "Security card" []
@@ -1944,7 +1948,7 @@
 @SolidClass base(Targetname) = trigger_jump : "Trigger player jump"
 [
 	target(string) : "Target (info_target)"
-	height(integer) : "Jump height"
+	height(integer) : "Jump height" : 150
 	angles(string) : "Pitch Yaw Roll"
 
 ]
