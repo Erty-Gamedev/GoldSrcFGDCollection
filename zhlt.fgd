@@ -1,3 +1,15 @@
+//
+// ZHLT game definition file (.fgd)
+// Version 1.1.0
+//
+// Part of the GoldSource FGD Collection Project:
+// https://github.com/Erty-Gamedev/GoldSrcFGDCollection
+//
+// Changes:
+// v1.1.0 (2025-05-08) by Erty
+// • Added info_compile_parameters
+//
+
 
 // light_shadow
 // It creates toggleable shadow for func_door, func_breakable, ...
@@ -72,6 +84,130 @@
 		1 : "Initially dark" : 0
 		2048 : "Not in Deathmatch" : 0
 	]
+]
+
+@PointClass size(-8 -8 0, 8 8 32) = info_compile_parameters : "Compile Options"
+[
+// Shared options
+    verbose(choices) : "Verbose compile messages" : "" =
+    [
+        "" : "Off"
+        1 : "On"
+    ]
+   	estimate(choices) :"Estimate Compile Times?" : "" =
+	[
+		"": "No"
+		1: "yes"
+	]
+   	priority(choices) : "Priority Level" : "" =
+	[
+		"" : "Normal"
+		1 : "High"
+		-1 : "Low"
+	]
+	texdata(string) : "Texture Data Memory" : "4096"
+
+// CSG
+	hlcsg(choices) : "Run CSG Stage" : 1 =
+    [
+        1 : "Normal"
+        2 : "Onlyents"
+        "" : "Off"
+    ]
+    hullfile(string) : "Custom Hullfile"
+    wadautodetect(choices) : "Wad Auto Detect" : 1 =
+    [
+        1 : "On"
+	"" : "Off"
+    ]
+    wadconfig(string) : "Custom Wad Configuration"
+    noclipeconomy(choices) : "Strip Uneeded Clipnodes?" : "" = 
+    [
+        "" : "Yes"
+        1 : "No"
+    ]
+    nocliphull(choices) : "Generate clipping hulls" : "" =
+    [
+        "" : "Yes"
+        1 : "No"
+    ]
+    cliptype(choices) : "clipping type" : 3 =
+    [
+        "" : "Smallest"
+        1 : "Normalized"
+        2 : "simple"
+        3 : "Precise"
+        4 : "Legacy"
+    ]
+    noskyclip(choices) : "Clip sky" : "" =
+    [
+        "" : "Yes"
+        1 : "No"
+    ]
+
+// BSP
+	hlbsp(choices) : "Run BSP Stage" : 1 =
+    [
+        "" : "Off" 
+        1 : "Normal"
+        2 : "Leakonly"
+    ]
+	noopt(choices) : "No plane optimisation" : "" =
+	[
+		"" : "Off"
+		-1 : "No"
+		1 : "Yes (not recommended)"
+	]
+	nocliphull(choices) : "Generate clipping hulls" : "" =
+	[
+		"" : "Yes"
+		1 : "No"
+	]
+
+// VIS
+	hlvis(choices) : "Run VIS Stage" : 2 = 
+    [ 
+        "" : "Off"
+        1 : "Fast"
+        2 : "Normal" 
+        3 : "Full"
+    ]
+
+// RAD
+	hlrad(choices) : "Run RAD Stage" : 1 =
+    [
+        "" : "Off"
+        1 : "Normal"
+        2 : "Extra"
+    ]
+    lightdata(string) : "Light Data Memory in KB" : "8192"
+    bounce(integer) : "Number of radiosity bounces" : 0
+	rad_customshadowwithbounce(choices) : "Custom Shadow with Bounce Light" : "" =
+	[
+		"" : "Off"
+		1 : "On"
+	]
+	rgbtransfers(choices) : "Enables custom shadows RGB Transfers" : "" =
+	[
+		"" : "Off"
+		1 : "On"
+	]
+    ambient(string) : "Ambient light (0.000 to 1.000, R G B)" : "0 0 0"
+    smooth(integer) : "Smoothing threshold (in degrees)" : 0
+    dscale(integer) : "Direct Lighting Scale" : 1
+    chop(integer) : "Chop Size" : 64
+    texchop(integer) : "Texture Light Chop Size" : 32
+    sparse(choices) : "Vismatrix Method" : 1 =
+    [
+        "" : "No Vismatrix"
+        1 : "Sparse Vismatrix"
+        2 : "Normal"
+    ]
+    circus(choices) : "Circus RAD lighting" : "" =
+    [
+        "" : "Off"
+        1 : "On"
+    ]
 ]
 
 // info_overview_point
