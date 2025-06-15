@@ -432,14 +432,7 @@
 	]
 ]
 
-@BaseClass base(Targetname, Targetx, Master, Appearflags, RenderFields, ZHLT, Global, Angles) = BaseToggle
-[
-	speed(integer) : "Speed" : 5
-	lip(integer) : "Lip"
-	wait(integer) : "delay before reset (-1 stay)" : 3
-]
-
-@BaseClass base(BaseToggle, LockedSounds) = Door
+@BaseClass base(Targetname, Targetx, Master, Appearflags, RenderFields, ZHLT, Global, Angles, LockedSounds) = Door
 [
 	speed(integer) : "Speed" : 100
 	movesnd(choices) : "Move Sound" : 0 = 
@@ -480,6 +473,11 @@
 		256:"Use Only" : 0
 		512: "Monsters Can't" : 0
 	]
+]
+
+@BaseClass = DoorLip
+[
+	lip(integer) : "Lip"
 ]
 
 @BaseClass = DoorHealth
@@ -1129,7 +1127,7 @@
 	speed(string) : "Conveyor Speed" : "100"
 ]
 
-@SolidClass base(Door, ZHLT, DoorHealth) = func_door : "Basic door" []
+@SolidClass base(Door, DoorLip, ZHLT, DoorHealth) = func_door : "Basic door" []
 
 @SolidClass base(Door, ZHLT, DoorHealth) = func_door_rotating : "Rotating door" 
 [
