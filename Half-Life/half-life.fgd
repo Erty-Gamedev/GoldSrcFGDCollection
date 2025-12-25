@@ -200,6 +200,24 @@
 	renderamt(integer) : "FX Amount (1 - 255)"
 	rendercolor(color255) : "FX Color (R G B)" : "0 0 0"
 ]
+@BaseClass = Effects
+[
+	effects(choices) : "Effects" : "" =
+	[
+		"": "None"
+		1: "Particle cloud"
+		2: "Muzzle flash"
+		4: "Bright flash"
+		8: "Player flashlight glow"
+		16: "Get light from ceiling"
+		32: "Don't interpolate next frame"
+		64: "Rocket flare"
+		128: "Nodraw"
+		// 256: "Player night vision"
+		// 512: "Sniper laser"
+		// 1024: "Fiber camera (CSCZ:DS)"
+	]
+]
 
 @BaseClass = Body
 [
@@ -288,7 +306,7 @@
 	]
 ]
 
-@BaseClass base(Targetname, Targetx, Global, RenderFields, ZHLT) = Breakable
+@BaseClass base(Targetname, Targetx, Global, RenderFields, Effects, ZHLT) = Breakable
 [
 	health(integer) : "Strength" : 1
 	material(choices) : "Material type" : 0 =
@@ -432,7 +450,7 @@
 	]
 ]
 
-@BaseClass base(Targetname, Targetx, Master, Appearflags, RenderFields, ZHLT, Global, Angles, LockedSounds) = Door
+@BaseClass base(Targetname, Targetx, Master, Appearflags, RenderFields, Effects, ZHLT, Global, Angles, LockedSounds) = Door
 [
 	speed(integer) : "Speed" : 100
 	movesnd(choices) : "Move Sound" : 0 = 
@@ -485,7 +503,7 @@
 	healthvalue(integer) : "Health to give on open"
 ]
 
-@BaseClass base(Targetname, Global, Angles, Appearflags, RenderFields) = MomentaryDoor
+@BaseClass base(Targetname, Global, Angles, Appearflags, RenderFields, Effects) = MomentaryDoor
 [
 	lip(integer) : "Lip"
 	dmg(integer) : "Damage inflicted when blocked" : 0
@@ -503,7 +521,7 @@
 	]
 ]
 
-@BaseClass base(Targetname, Target, RenderFields, Global, Angles, ZHLT) = BaseTank
+@BaseClass base(Targetname, Target, RenderFields, Effects, Global, Angles, ZHLT) = BaseTank
 [
 	spawnflags(flags) =
 	[
@@ -1156,7 +1174,7 @@
 
 @SolidClass base(Global, RenderFields, ZHLT) = func_healthcharger: "Health Charger" []
 
-@SolidClass base(Targetname, RenderFields, ZHLT) = func_illusionary : "Fake Wall/Light" 
+@SolidClass base(Targetname, RenderFields, Effects, ZHLT) = func_illusionary : "Fake Wall/Light" 
 [
 	skin(choices) : "Contents" : -1 =
 	[
@@ -1433,7 +1451,7 @@
 	]
 ]
 
-@SolidClass base(Targetname, Appearflags, RenderFields, Global, ZHLT) = func_wall : "Wall" []
+@SolidClass base(Targetname, Appearflags, RenderFields, Effects, Global, ZHLT) = func_wall : "Wall" []
 
 @SolidClass base(func_wall) = func_wall_toggle : "Toggleable geometry" 
 [
