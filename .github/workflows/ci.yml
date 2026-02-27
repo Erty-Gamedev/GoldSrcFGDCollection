@@ -1,0 +1,24 @@
+name: Publish release
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Package release
+      run: |
+        cd ${{github.workspace}}
+        zip -r goldsrcfgdcollection_${{github.event.release.tag_name}}.zip . -x .github/**\*
+        gh release upload ${{github.event.release.tag_name}} goldsrcfgdcollection_${{github.event.release.tag_name}}.zip
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
