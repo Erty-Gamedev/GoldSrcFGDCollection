@@ -18,7 +18,7 @@ jobs:
     - name: Package release
       run: |
         cd ${{github.workspace}}
-        zip -r goldsrcfgdcollection_${{github.event.release.tag_name}}.zip . -x .github/**\*
+        zip -r goldsrcfgdcollection_${{github.event.release.tag_name}}.zip . -x .\* .\*/**
         gh release upload ${{github.event.release.tag_name}} goldsrcfgdcollection_${{github.event.release.tag_name}}.zip
       env:
         GITHUB_TOKEN: ${{ github.token }}
