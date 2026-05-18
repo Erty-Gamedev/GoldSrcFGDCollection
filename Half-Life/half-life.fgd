@@ -306,7 +306,7 @@
 	]
 ]
 
-@BaseClass base(Targetname, Targetx, Global, RenderFields, Effects, ZHLT) = Breakable
+@BaseClass base(Targetname, Targetx, Global, RenderFields, Effects) = Breakable
 [
 	health(integer) : "Strength" : 1
 	material(choices) : "Material type" : 0 =
@@ -450,7 +450,7 @@
 	]
 ]
 
-@BaseClass base(Targetname, Targetx, Master, Appearflags, RenderFields, Effects, ZHLT, Global, Angles, LockedSounds) = Door
+@BaseClass base(Targetname, Targetx, Master, Appearflags, RenderFields, Effects, Global, Angles, LockedSounds) = Door
 [
 	speed(integer) : "Speed" : 100
 	movesnd(choices) : "Move Sound" : 0 = 
@@ -521,7 +521,7 @@
 	]
 ]
 
-@BaseClass base(Targetname, Target, RenderFields, Effects, Global, Angles, ZHLT) = BaseTank
+@BaseClass base(Targetname, Target, RenderFields, Effects, Global, Angles) = BaseTank
 [
 	spawnflags(flags) =
 	[
@@ -1100,7 +1100,7 @@
 // Functional Entities
 //
 
-@SolidClass base(Breakable) = func_breakable : "Breakable Object" []
+@SolidClass base(Breakable, ZHLT) = func_breakable : "Breakable Object" []
 
 @SolidClass base(Global, Targetname, Targetx, RenderFields, Angles, ZHLT, LockedSounds) = func_button : "Button" 
 [
@@ -1245,7 +1245,7 @@
 	rotation(integer) : "Spin amount" : 0
 ]
 
-@SolidClass base(Breakable) = func_pushable : "Pushable object"
+@SolidClass base(Breakable, ZHLT) = func_pushable : "Pushable object"
 [
 	size(choices) : "Hull Size" : 0 =
 	[
