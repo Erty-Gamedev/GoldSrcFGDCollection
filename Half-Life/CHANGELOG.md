@@ -1,5 +1,10 @@
 # Half-Life FGD Changelog
 
+## v1.1.4
+* Fixed duplicate ZHLT inheritance for classes deriving from Breakable, Door and BaseTank (thanks mota-with-a-lambda)
+* Added ZHLT inheritance to Trackchange and removed it from the two derived classes (thanks mota-with-a-lambda)
+
+
 ## v1.1.3
 * Added preview sequence property to monsters (thanks Mad Carrot)
 * Added env_model hack (thanks Mad Carrot)
