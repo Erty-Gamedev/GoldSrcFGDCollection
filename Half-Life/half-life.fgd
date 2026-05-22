@@ -595,7 +595,7 @@
 	volume(string) : "Sound Volume 0.0 - 1.0" : "0.85"
 ]
 
-@BaseClass base(Targetname, RenderFields, Global, PlatSounds) = Trackchange
+@BaseClass base(Targetname, RenderFields, Global, PlatSounds, ZHLT) = Trackchange
 [
 	height(integer) : "Travel altitude" : 0
 	spawnflags(flags) =
@@ -1145,9 +1145,9 @@
 	speed(string) : "Conveyor Speed" : "100"
 ]
 
-@SolidClass base(Door, DoorLip, ZHLT, DoorHealth) = func_door : "Basic door" []
+@SolidClass base(Door, DoorLip, DoorHealth) = func_door : "Basic door" []
 
-@SolidClass base(Door, ZHLT, DoorHealth) = func_door_rotating : "Rotating door" 
+@SolidClass base(Door, DoorHealth) = func_door_rotating : "Rotating door" 
 [
 	spawnflags(flags) =
 	[
@@ -1329,7 +1329,7 @@
 	dmg(integer) : "Damage inflicted when blocked" : 0
 ]
 
-@SolidClass base(BaseTank, ZHLT) = func_tank : "Brush Gun Turret" 
+@SolidClass base(BaseTank) = func_tank : "Brush Gun Turret" 
 [
 	bullet(choices) : "Bullets" : 0 = 
 	[
@@ -1345,22 +1345,22 @@
 	target(target_destination) : "Tank entity name"
 ]
 
-@SolidClass base(BaseTank, ZHLT) = func_tanklaser : "Brush Laser Turret" 
+@SolidClass base(BaseTank) = func_tanklaser : "Brush Laser Turret" 
 [
 	laserentity(target_source) : "env_laser Entity"
 ]
 
-@SolidClass base(BaseTank, ZHLT) = func_tankrocket : "Brush Rocket Turret" []
+@SolidClass base(BaseTank) = func_tankrocket : "Brush Rocket Turret" []
 
 
-@SolidClass base(BaseTank, ZHLT) = func_tankmortar : "Brush Mortar Turret" 
+@SolidClass base(BaseTank) = func_tankmortar : "Brush Mortar Turret" 
 [
 	iMagnitude(integer) : "Explosion Magnitude" : 100
 ]
 
-@SolidClass base(Trackchange, ZHLT) = func_trackautochange : "Automatic track changing platform" []
+@SolidClass base(Trackchange) = func_trackautochange : "Automatic track changing platform" []
 
-@SolidClass base(Trackchange, ZHLT) = func_trackchange : "Train track changing platform" []
+@SolidClass base(Trackchange) = func_trackchange : "Train track changing platform" []
 
 @SolidClass base(Targetname, Global, RenderFields, ZHLT) = func_tracktrain : "Track Train" 
 [
@@ -1461,7 +1461,7 @@
 	]
 ]
 
-@SolidClass base(Door, ZHLT) = func_water : "Liquid" 
+@SolidClass base(Door) = func_water : "Liquid" 
 [
 	spawnflags(flags) =
 	[
