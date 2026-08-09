@@ -2,18 +2,24 @@
 // DMC game definition file (.fgd)
 // for Worldcraft 3.x and above
 //
-// updated by Chris Bokitch & Daniel "Dmx6" O.
+// Updated by Chris Bokitch
 // autolycus@valvesoftware.com
 // http://www.valve-erc.com/
 //
+// Further updates by Daniel "Dmx6" O. and SirYodaJedi
 //
-// aug 18 2023 - 3.0.0.3
+// aug 09 2026 - 3.0.0.4 - by SirYodaJedi
+//	- added "target" KV to weapons and ammo
+//  - add item_weapon (deprecated, but still used in some maps)
+//  - fix spawnflags for trigger_teleport (different from HL)
+//
+// aug 18 2023 - 3.0.0.3 - by Daniel "Dmx6" O.
 // 	- added "Big" flags for ammunition entities
 //
-// sep 19 2001 - 3.0.0.2
+// sep 19 2001 - 3.0.0.2 - by Chris Bokitch
 //	- added env_fog (from HL 1.1.0.8)
 //
-// aug 28 2001 - 3.0.0.1
+// aug 28 2001 - 3.0.0.1 - by Chris Bokitch
 //	- changed IS NOT LOOPED to NOT TOGGLED on ambient_generic (royalef)
 //	- gave light_environment a Name
 //	- added Angular Velocity to func_train
@@ -1877,7 +1883,16 @@
 	]
 ]
 
-@SolidClass base(Trigger) = trigger_teleport : "Trigger teleport" []
+@SolidClass base(Trigger) = trigger_teleport : "Trigger teleport"
+[
+	// override spawnflags from base(Trigger)
+	spawnflags(flags) = 
+	[
+		1 : "Players only" : 0
+		2 : "Silent" : 0
+		4 : "Unused" : 0
+	]
+]
 
 //
 // weapons
@@ -1887,36 +1902,38 @@
 
 // DMC/Quake1 entities
 
-@PointClass base(Ammo) = item_cells : "Thunderbolt ammo" 
+@BaseClass base(Targetname,Appearflags) = QuakeItem
 [
-	spawnflags(flags) =
-	[
-		1 : "Big" : 0
-	]
+	target(target_destination) : "Target when picked up"
 ]
-@PointClass base(Ammo) = item_rockets : "Rockets" 
+
+@BaseClass base(Ammo, QuakeItem) = QuakeAmmo
 [
-	spawnflags(flags) =
+	spawnflags(flags) = 
 	[
-		1 : "Big" : 0
-	]
-]
-@PointClass base(Ammo) = item_shells : "Shells" 
-[
-	spawnflags(flags) =
-	[
-		1 : "Big" : 0
-	]
-]
-@PointClass base(Ammo) = item_spikes : "Perforator/Nailgun ammo" 
-[
-spawnflags(flags) =
-	[
-		1 : "Big" : 0
+		1 : "Big Ammo Box" : 0
 	]
 ]
 
-@PointClass size(0 0 0, 32 32 32) base(Target, Appearflags) = item_health : "Health pak"
+@BaseClass base(Weapon, QuakeItem) = QuakeWeapon []
+
+@PointClass base(Ammo, QuakeItem) flags(Angle) = item_weapon : "Deprecated method of placing ammo in the world. Quake still uses it in some maps. Doesn't spawn if deathmatch cvar is set to 4."
+[
+	spawnflags(flags) = 
+	[
+		1 : "Shells" : 0
+		2 : "Rockets" : 0
+		4 : "Spikes" : 0
+		8 : "Big Ammo Box" : 0
+	]
+]
+
+@PointClass base(QuakeAmmo) = item_cells : "Thunderbolt ammo" []
+@PointClass base(QuakeAmmo) = item_rockets : "Rockets" []
+@PointClass base(QuakeAmmo) = item_shells : "Shells" []
+@PointClass base(QuakeAmmo) = item_spikes : "Perforator/Nailgun ammo" []
+
+@PointClass size(0 0 0, 32 32 32) base(QuakeItem) = item_health : "Health pak"
 [
 	spawnflags(flags) =
 	[
@@ -1925,18 +1942,18 @@ spawnflags(flags) =
 	]
 ]
 
-@PointClass base(Target, Appearflags) = item_artifact_envirosuit : "Environmental protection suit" []
-@PointClass base(Target, Appearflags) = item_artifact_super_damage : "Quad damage" []
-@PointClass base(Target, Appearflags) = item_artifact_invulnerability : "Pentagram of Protection" []
-@PointClass base(Target, Appearflags) = item_artifact_invisibility : "Ring of Shadows" []
+@PointClass base(QuakeItem) = item_artifact_envirosuit : "Environmental protection suit" []
+@PointClass base(QuakeItem) = item_artifact_super_damage : "Quad damage" []
+@PointClass base(QuakeItem) = item_artifact_invulnerability : "Pentagram of Protection" []
+@PointClass base(QuakeItem) = item_artifact_invisibility : "Ring of Shadows" []
 
-@PointClass size(-16 -16 -24, 16 16 32) base(Target, Appearflags) = item_armorInv : "200% armor (Red)" []
-@PointClass size(-16 -16 -24, 16 16 32) base(Target, Appearflags) = item_armor2 : "150% armor (Yellow)" []
-@PointClass size(-16 -16 -24, 16 16 32) base(Target, Appearflags) = item_armor1 : "100% armor (Green)" []
+@PointClass size(-16 -16 -24, 16 16 32) base(QuakeItem) = item_armorInv : "200% armor (Red)" []
+@PointClass size(-16 -16 -24, 16 16 32) base(QuakeItem) = item_armor2 : "150% armor (Yellow)" []
+@PointClass size(-16 -16 -24, 16 16 32) base(QuakeItem) = item_armor1 : "100% armor (Green)" []
 
-@PointClass base(Weapon) = weapon_supershotgun : "Super shotgun" []
-@PointClass base(Weapon) = weapon_nailgun : "Nailgun" []
-@PointClass base(Weapon) = weapon_supernailgun : "Perforator" []
-@PointClass base(Weapon) = weapon_grenadelauncher : "Grenade launcher" []
-@PointClass base(Weapon) = weapon_rocketlauncher : "Rocket launcher" []
-@PointClass base(Weapon) = weapon_lightning : "Thunderbolt" []
+@PointClass base(QuakeWeapon) = weapon_supershotgun : "Super shotgun" []
+@PointClass base(QuakeWeapon) = weapon_nailgun : "Nailgun" []
+@PointClass base(QuakeWeapon) = weapon_supernailgun : "Perforator" []
+@PointClass base(QuakeWeapon) = weapon_grenadelauncher : "Grenade launcher" []
+@PointClass base(QuakeWeapon) = weapon_rocketlauncher : "Rocket launcher" []
+@PointClass base(QuakeWeapon) = weapon_lightning : "Thunderbolt" []
