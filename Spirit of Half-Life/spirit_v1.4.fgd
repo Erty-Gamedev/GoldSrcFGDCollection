@@ -881,7 +881,7 @@
 		1 : "current count/Comparison number (Watcher_Count)"
 	]
 	message(string) : "Scale factor [LR]" : "1"
-	button ((choices) : "Ratio to get (Scale)" : 0 =
+	button(choices) : "Ratio to get (Scale)" : 0 =
 	[
 		0: "health/maxhealth(Monsters/Players/Breakables)"
 		1 : "speed (use scalefactor to obtain a ratio)(Monsters/Players)"

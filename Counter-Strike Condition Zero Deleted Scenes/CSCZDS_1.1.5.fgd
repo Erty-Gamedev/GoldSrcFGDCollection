@@ -3177,7 +3177,7 @@
 
 @PointClass base(Monster, Angles, Classtype, ModelFile) size(-16 -16 0, 16 16 16) studio("models/pigeon.mdl") = monster_flyer : "Flyers: Creates a pigeon. It can only fly around. The player can't interact with it at all." []
 
-@PointClass base(Monster, Angles, Classtype, ModelFile) size(-16 -16 0, 16 16 16) studio("models/pigeon.mdl") = monster_flyer_flock : "Flyers: Creates a group of pigeons. It can only fly around. The player can't interact with it at all." []
+@PointClass base(Monster, Angles, Classtype, ModelFile) size(-16 -16 0, 16 16 16) studio("models/pigeon.mdl") = monster_flyer_flock : "Flyers: Creates a group of pigeons. It can only fly around. The player can't interact with it at all."
 [
 	iflocksize(integer) : "Flock size" : "" : "How many pigeons you want to spawn."
 	flflockradius(integer) : "Flock radius" : "" : "The higher the value is, the more distance will be kept between flyers"
@@ -3463,7 +3463,6 @@
 // T ENTITIES
 ////////////////////////////////////////////////////////////////////////////////
 
-(Target, Targetname, RenderFields, Angles)
 @PointClass studio("models/arctic.mdl") size(-16 -16 0, 16 16 72) color(255 0 0) base(Monster, Classtype, ModelFile) = monster_terrorist_arctic_assaultrifle : "Terrorist - Arctic - Assault Rifle" []
 @PointClass studio("models/arctic.mdl") size(-16 -16 0, 16 16 72) color(255 0 0) base(Monster, Classtype, ModelFile, Grenadier) = monster_terrorist_arctic_grenader : "Terrorist - Arctic - Grenadier" []
 @PointClass studio("models/arctic.mdl") size(-16 -16 0, 16 16 72) color(255 0 0) base(Monster, Classtype, ModelFile) = monster_terrorist_arctic_kamakazi : "Terrorist - Arctic - Kamakazi" []
@@ -4350,15 +4349,15 @@
 //Im not sure what else can be made through event editing in anims, wep key and behavior key. skills.cfg sgrenade needs to be pretty high to work. around 1000
 
 //@PointClass studio() size(-16 -16 0, 16 16 72) color(0 0 255) base(Angles) = monster_terrorist_arctic : "Custom monster: Unfortunatly, this is implemented with some whacky key/value combination and a custom model with animation events changed, so its not quite normal. But can serve as an example." 
-[
-	//behave to 7
-	body(integer) : "Body" : 0 : "Bodygroup"
-	skin(integer) : "Skin" : 0 : "Skin group"
-	model(studio) : "Model" : "models/terrormodded.mdl" : "Model"
-	behavior(integer) : "Behavior" : 5 : "Behavior"
-	weapons(integer) : "Weapons" : 4 : "Weapon characteristics?. Put 4 for a rpg 'doesnt miss' man"
-	invulnerable(integer) : "Invulnerable" : 1 : "no damage"
-]
+//[
+//	//behave to 7
+//	body(integer) : "Body" : 0 : "Bodygroup"
+//	skin(integer) : "Skin" : 0 : "Skin group"
+//	model(studio) : "Model" : "models/terrormodded.mdl" : "Model"
+//	behavior(integer) : "Behavior" : 5 : "Behavior"
+//	weapons(integer) : "Weapons" : 4 : "Weapon characteristics?. Put 4 for a rpg 'doesnt miss' man"
+//	invulnerable(integer) : "Invulnerable" : 1 : "no damage"
+//]
 @PointClass studio("models/leet.mdl") size(-16 -16 0, 16 16 72) color(255 0 0) base(Monster, Classtype, ModelFile) = monster_terrorist_desert []
 @PointClass studio("models/terror.mdl") size(-16 -16 0, 16 16 72) color(255 0 0) base(Monster, Classtype, ModelFile) = monster_terrorist_russian []
 @PointClass studio("models/militia.mdl") size(-16 -16 0, 16 16 72) color(255 0 0) base(Monster, Classtype, ModelFile) = monster_terrorist_urban []
