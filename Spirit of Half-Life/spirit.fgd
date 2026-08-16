@@ -1292,7 +1292,7 @@
 
 //NEW 1.8
 //* To use this, simply refer to it in any field that's designated [LN].
-@PointClass base(Targetname) color(170 221 85) size(-12 -12 -12, 12 12 12) iconsprite("sprites/calc.spr") = calc_subratio : "Calculate number based on entity properties"
+@PointClass base(Targetname) color(170 221 85) size(-12 -12 -12, 12 12 12) iconsprite("sprites/calc.spr") = calc_subratio : "Calculate number based on entity properties" []
 @PointClass base(Targetname) color(170 221 85) size(-12 -12 -12, 12 12 12) iconsprite("sprites/calc.spr") = calc_numfroment : "Calculate number based on entity properties"
 [
 	target(string) : "Entity to use [LE]" : "*locus"
@@ -1343,7 +1343,7 @@
 		//* In the case above, the result would be 80%.
 		2 : "Bounce back"
 		//* Treated as 0. Or you can catch this failure with calc_fallback.
-		3 : "Fail
+		3 : "Fail"
 	]
 ]
 
