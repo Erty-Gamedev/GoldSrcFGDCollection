@@ -1,13 +1,15 @@
 //
 // ZHLT game definition file (.fgd)
-// Version 1.1.0
+// Version 1.1.0a
 //
 // Part of the GoldSource FGD Collection Project:
 // https://github.com/Erty-Gamedev/GoldSrcFGDCollection
 //
 // Changes:
+// v1.1.0a (2026-08-09) by SirYodaJedi
+// - Use color1 instead of string for "ambient"
 // v1.1.0 (2025-05-08) by Erty
-// • Added info_compile_parameters
+// - Added info_compile_parameters
 //
 
 
@@ -192,7 +194,7 @@
 		"" : "Off"
 		1 : "On"
 	]
-    ambient(string) : "Ambient light (0.000 to 1.000, R G B)" : "0 0 0"
+    ambient(color1) : "Ambient light (0.000 to 1.000, R G B)" : "0 0 0"
     smooth(integer) : "Smoothing threshold (in degrees)" : 0
     dscale(integer) : "Direct Lighting Scale" : 1
     chop(integer) : "Chop Size" : 64
