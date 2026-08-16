@@ -194,7 +194,7 @@
 		"" : "Off"
 		1 : "On"
 	]
-    ambient(string) : "Ambient light (0.000 to 1.000, R G B)" : "0 0 0"
+    ambient(color1) : "Ambient light (0.000 to 1.000, R G B)" : "0 0 0"
     smooth(integer) : "Smoothing threshold (in degrees)" : 0
     dscale(integer) : "Direct Lighting Scale" : 1
     chop(integer) : "Chop Size" : 64
